@@ -44,6 +44,7 @@ internal sealed class CashShopItemBuyRequestHandlerPlugIn : ISubPacketHandlerPlu
         var itemIndex = request.ItemIndex;
         var coinIndex = request.CoinIndex;
         var mileageFlag = request.MileageFlag;
+        var hasCatalogMatch = CashShopCatalog.Find(packageMainIndex, category, productMainIndex, itemIndex, coinIndex, mileageFlag) is not null;
         byte result;
         try
         {
@@ -55,6 +56,23 @@ internal sealed class CashShopItemBuyRequestHandlerPlugIn : ISubPacketHandlerPlu
             var correlationId = Guid.NewGuid();
             player.Logger.LogError(exception, "Cash shop purchase failed. CorrelationId: {CorrelationId}; Player: {Player}.", correlationId, player);
             result = 255;
+        }
+
+        if (result != 0)
+        {
+            player.Logger.LogWarning(
+                "Cash shop purchase rejected with result {Result}. Package: {PackageMainIndex}; Category: {Category}; Product: {ProductMainIndex}; Item: {ItemIndex}; Coin: {CoinIndex}; Mileage: {MileageFlag}; CatalogMatch: {CatalogMatch}; AccountPresent: {AccountPresent}; CharacterPresent: {CharacterPresent}; Safezone: {Safezone}.",
+                result,
+                packageMainIndex,
+                category,
+                productMainIndex,
+                itemIndex,
+                coinIndex,
+                mileageFlag,
+                hasCatalogMatch,
+                player.Account is not null,
+                player.SelectedCharacter is not null,
+                player.IsAtSafezone());
         }
 
         await player.InvokeViewPlugInAsync<ICashShopViewPlugIn>(p => p.ShowBuyResultAsync(result)).ConfigureAwait(false);
