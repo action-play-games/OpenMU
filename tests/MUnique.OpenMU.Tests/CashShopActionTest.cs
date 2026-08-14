@@ -21,17 +21,19 @@ public class CashShopActionTest
     [Test]
     public void CatalogRequiresExactClientTuple()
     {
-        var product = CashShopCatalog.Find(373, 34, 567, 7255, 0, 0);
+        var product = CashShopCatalog.Find(373, 34, 0, 7255, 0, 0);
 
         Assert.That(product, Is.Not.Null);
         Assert.Multiple(() =>
         {
             Assert.That(product!.ProductSequence, Is.EqualTo(488));
+            Assert.That(product.ProductMainIndex, Is.Zero);
+            Assert.That(product.PriceSequence, Is.EqualTo(567));
             Assert.That(product.Price, Is.EqualTo(200));
             Assert.That(product.Currency, Is.EqualTo(CashShopCurrency.GoblinPoints));
             Assert.That(CashShopCatalog.Find(373, 34, 568, 7255, 0, 0), Is.Null);
-            Assert.That(CashShopCatalog.Find(373, 34, 567, 7255, 1, 0), Is.Null);
-            Assert.That(CashShopCatalog.Find(373, 34, 567, 7255, 0, 1), Is.Null);
+            Assert.That(CashShopCatalog.Find(373, 34, 0, 7255, 1, 0), Is.Null);
+            Assert.That(CashShopCatalog.Find(373, 34, 0, 7255, 0, 1), Is.Null);
         });
     }
 
@@ -44,8 +46,8 @@ public class CashShopActionTest
         var player = await CreateCashShopPlayerAsync(500).ConfigureAwait(false);
         var action = new CashShopAction();
 
-        var firstResult = await action.BuyAsync(player, 373, 34, 567, 7255, 0, 0).ConfigureAwait(false);
-        var replayResult = await action.BuyAsync(player, 373, 34, 567, 7255, 0, 0).ConfigureAwait(false);
+        var firstResult = await action.BuyAsync(player, 373, 34, 0, 7255, 0, 0).ConfigureAwait(false);
+        var replayResult = await action.BuyAsync(player, 373, 34, 0, 7255, 0, 0).ConfigureAwait(false);
         var storage = (await player.PersistenceContext.GetAsync<CashShopStorageItem>().ConfigureAwait(false)).ToList();
         var ledger = (await player.PersistenceContext.GetAsync<CashShopLedgerEntry>().ConfigureAwait(false)).ToList();
 
@@ -58,6 +60,7 @@ public class CashShopActionTest
             Assert.That(storage, Has.Count.EqualTo(1));
             Assert.That(storage[0].State, Is.EqualTo(CashShopStorageState.Active));
             Assert.That(storage[0].ItemCode, Is.EqualTo(7255));
+            Assert.That(storage[0].PriceSequence, Is.EqualTo(567));
             Assert.That(ledger, Has.Count.EqualTo(1));
             Assert.That(ledger[0].Operation, Is.EqualTo(CashShopLedgerOperation.Purchase));
             Assert.That(ledger[0].Delta, Is.EqualTo(-200));
@@ -74,7 +77,7 @@ public class CashShopActionTest
         var player = await CreateCashShopPlayerAsync(100).ConfigureAwait(false);
         var action = new CashShopAction();
 
-        var insufficient = await action.BuyAsync(player, 373, 34, 567, 7255, 0, 0).ConfigureAwait(false);
+        var insufficient = await action.BuyAsync(player, 373, 34, 0, 7255, 0, 0).ConfigureAwait(false);
         var alteredProduct = await action.BuyAsync(player, 373, 34, 568, 7255, 0, 0).ConfigureAwait(false);
 
         Assert.Multiple(() =>
@@ -97,7 +100,7 @@ public class CashShopActionTest
         player.CurrentMap!.Terrain.SafezoneMap[player.Position.X, player.Position.Y] = false;
         var action = new CashShopAction();
 
-        var result = await action.BuyAsync(player, 373, 34, 567, 7255, 0, 0).ConfigureAwait(false);
+        var result = await action.BuyAsync(player, 373, 34, 0, 7255, 0, 0).ConfigureAwait(false);
 
         Assert.Multiple(() =>
         {
@@ -118,8 +121,8 @@ public class CashShopActionTest
         var action = new CashShopAction();
 
         var results = await Task.WhenAll(
-            action.BuyAsync(player, 373, 34, 567, 7255, 0, 0).AsTask(),
-            action.BuyAsync(player, 375, 34, 569, 7254, 0, 0).AsTask()).ConfigureAwait(false);
+            action.BuyAsync(player, 373, 34, 0, 7255, 0, 0).AsTask(),
+            action.BuyAsync(player, 375, 34, 0, 7254, 0, 0).AsTask()).ConfigureAwait(false);
         var storage = (await player.PersistenceContext.GetAsync<CashShopStorageItem>().ConfigureAwait(false)).ToList();
         var ledger = (await player.PersistenceContext.GetAsync<CashShopLedgerEntry>().ConfigureAwait(false)).ToList();
 
@@ -147,7 +150,7 @@ public class CashShopActionTest
         receiver.Characters.Add(receiverCharacter);
         var action = new CashShopAction();
 
-        var result = await action.GiftAsync(player, 374, 34, 568, 7253, 0, 0, "GiftTarget", "Lab gift").ConfigureAwait(false);
+        var result = await action.GiftAsync(player, 374, 34, 0, 7253, 0, 0, "GiftTarget", "Lab gift").ConfigureAwait(false);
         var gifts = await player.PersistenceContext.GetCashShopStorageItemsAsync(receiver.LoginName, CashShopStorageKind.Gift, 0, 10).ConfigureAwait(false);
         var ledger = (await player.PersistenceContext.GetAsync<CashShopLedgerEntry>().ConfigureAwait(false)).Single();
 
@@ -173,7 +176,7 @@ public class CashShopActionTest
         var player = await CreateCashShopPlayerAsync(500).ConfigureAwait(false);
         var action = new CashShopAction();
 
-        var result = await action.GiftAsync(player, 374, 34, 568, 7253, 0, 0, "Unknown", "No receiver").ConfigureAwait(false);
+        var result = await action.GiftAsync(player, 374, 34, 0, 7253, 0, 0, "Unknown", "No receiver").ConfigureAwait(false);
 
         Assert.Multiple(() =>
         {
@@ -198,7 +201,7 @@ public class CashShopActionTest
         receiver.Characters.Add(receiverCharacter);
         var action = new CashShopAction();
 
-        var result = await action.GiftAsync(player, 374, 34, 568, 7253, 0, 0, "GiftTarget", new string('\u00E1', 200)).ConfigureAwait(false);
+        var result = await action.GiftAsync(player, 374, 34, 0, 7253, 0, 0, "GiftTarget", new string('\u00E1', 200)).ConfigureAwait(false);
         var gift = (await player.PersistenceContext.GetAsync<CashShopStorageItem>().ConfigureAwait(false)).Single();
 
         Assert.Multiple(() =>
@@ -218,7 +221,7 @@ public class CashShopActionTest
         var player = await CreateCashShopPlayerAsync(500).ConfigureAwait(false);
         AddCatalogItemDefinition(player, 14, 87);
         var action = new CashShopAction();
-        Assert.That(await action.BuyAsync(player, 373, 34, 567, 7255, 0, 0).ConfigureAwait(false), Is.Zero);
+        Assert.That(await action.BuyAsync(player, 373, 34, 0, 7255, 0, 0).ConfigureAwait(false), Is.Zero);
         var storage = (await player.PersistenceContext.GetAsync<CashShopStorageItem>().ConfigureAwait(false)).Single();
 
         var firstResult = await action.ConsumeAsync(player, (uint)storage.StorageIndex, (uint)storage.StorageIndex, 7255, (byte)'P').ConfigureAwait(false);
@@ -253,7 +256,7 @@ public class CashShopActionTest
         }
 
         var action = new CashShopAction();
-        Assert.That(await action.BuyAsync(player, 373, 34, 567, 7255, 0, 0).ConfigureAwait(false), Is.Zero);
+        Assert.That(await action.BuyAsync(player, 373, 34, 0, 7255, 0, 0).ConfigureAwait(false), Is.Zero);
         var storage = (await player.PersistenceContext.GetAsync<CashShopStorageItem>().ConfigureAwait(false)).Single();
 
         var result = await action.ConsumeAsync(player, (uint)storage.StorageIndex, (uint)storage.StorageIndex, 7255, (byte)'P').ConfigureAwait(false);
@@ -284,7 +287,7 @@ public class CashShopActionTest
         var action = new CashShopAction();
 
         var foreignResult = await action.DeleteAsync(player, 42, 42, (byte)'P').ConfigureAwait(false);
-        Assert.That(await action.BuyAsync(player, 373, 34, 567, 7255, 0, 0).ConfigureAwait(false), Is.Zero);
+        Assert.That(await action.BuyAsync(player, 373, 34, 0, 7255, 0, 0).ConfigureAwait(false), Is.Zero);
         var ownedStorage = (await player.PersistenceContext.GetAsync<CashShopStorageItem>().ConfigureAwait(false))
             .Single(item => item.Account == player.Account);
         var firstResult = await action.DeleteAsync(player, (uint)ownedStorage.StorageIndex, (uint)ownedStorage.StorageIndex, (byte)'P').ConfigureAwait(false);

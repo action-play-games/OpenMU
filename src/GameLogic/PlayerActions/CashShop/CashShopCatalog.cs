@@ -13,9 +13,9 @@ public static class CashShopCatalog
 {
     private static readonly IReadOnlyList<CashShopCatalogProduct> Products =
     [
-        new(373, 34, 567, 7255, 0, 0, 488, 567, 673, 14, 87, 200, CashShopCurrency.GoblinPoints, true),
-        new(375, 34, 569, 7254, 0, 0, 490, 569, 673, 14, 86, 300, CashShopCurrency.GoblinPoints, true),
-        new(374, 34, 568, 7253, 0, 0, 489, 568, 673, 14, 85, 300, CashShopCurrency.GoblinPoints, true),
+        new(373, 34, 0, 7255, 0, 0, 488, 567, 673, 14, 87, 200, CashShopCurrency.GoblinPoints, true),
+        new(375, 34, 0, 7254, 0, 0, 490, 569, 673, 14, 86, 300, CashShopCurrency.GoblinPoints, true),
+        new(374, 34, 0, 7253, 0, 0, 489, 568, 673, 14, 85, 300, CashShopCurrency.GoblinPoints, true),
     ];
 
     /// <summary>

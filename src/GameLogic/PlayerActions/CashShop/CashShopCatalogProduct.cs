@@ -16,7 +16,7 @@ public sealed class CashShopCatalogProduct
     /// </summary>
     /// <param name="packageMainIndex">The package sequence.</param>
     /// <param name="category">The display category.</param>
-    /// <param name="productMainIndex">The price sequence sent by the client.</param>
+    /// <param name="productMainIndex">The product index sent by the client; single-price packages send zero.</param>
     /// <param name="itemIndex">The client item code.</param>
     /// <param name="coinIndex">The client cash type.</param>
     /// <param name="mileageFlag">The client mileage flag.</param>
@@ -66,7 +66,7 @@ public sealed class CashShopCatalogProduct
     /// <summary>Gets the display category.</summary>
     public uint Category { get; }
 
-    /// <summary>Gets the price sequence sent as product main index.</summary>
+    /// <summary>Gets the product index sent by the client; single-price packages use zero.</summary>
     public uint ProductMainIndex { get; }
 
     /// <summary>Gets the client item code.</summary>
