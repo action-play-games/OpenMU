@@ -12446,6 +12446,191 @@
         </Structure>
       </Structures>
     </Packet>
+    <Packet>
+      <HeaderType>C1HeaderWithSubCode</HeaderType>
+      <Code>D2</Code>
+      <SubCode>01</SubCode>
+      <Name>CashShopPointInfo</Name>
+      <Length>45</Length>
+      <Direction>ServerToClient</Direction>
+      <SentWhen>The client requests the account cash shop balances.</SentWhen>
+      <CausedReaction>The client updates its WCoin C, WCoin P and Goblin Point display.</CausedReaction>
+      <Fields>
+        <Field><Index>4</Index><Type>Byte</Type><Name>ViewType</Name></Field>
+        <Field><Index>5</Index><Type>Double</Type><Name>TotalCash</Name></Field>
+        <Field><Index>13</Index><Type>Double</Type><Name>CashCredit</Name></Field>
+        <Field><Index>21</Index><Type>Double</Type><Name>CashPrepaid</Name></Field>
+        <Field><Index>29</Index><Type>Double</Type><Name>TotalPoint</Name></Field>
+        <Field><Index>37</Index><Type>Double</Type><Name>TotalMileage</Name></Field>
+      </Fields>
+    </Packet>
+    <Packet>
+      <HeaderType>C1HeaderWithSubCode</HeaderType>
+      <Code>D2</Code>
+      <SubCode>02</SubCode>
+      <Name>CashShopOpenResponse</Name>
+      <Length>5</Length>
+      <Direction>ServerToClient</Direction>
+      <SentWhen>The player requests to open the cash shop.</SentWhen>
+      <CausedReaction>The client opens the cash shop only when the result is non-zero.</CausedReaction>
+      <Fields>
+        <Field><Index>4</Index><Type>Byte</Type><Name>Result</Name></Field>
+      </Fields>
+    </Packet>
+    <Packet>
+      <HeaderType>C1HeaderWithSubCode</HeaderType>
+      <Code>D2</Code>
+      <SubCode>03</SubCode>
+      <Name>CashShopItemBuyResponse</Name>
+      <Length>9</Length>
+      <Direction>ServerToClient</Direction>
+      <SentWhen>A cash shop purchase request has completed.</SentWhen>
+      <CausedReaction>The client displays the purchase result and refreshes balances and storage on success.</CausedReaction>
+      <Fields>
+        <Field><Index>4</Index><Type>Byte</Type><Name>ResultCode</Name></Field>
+        <Field><Index>5</Index><Type>IntegerLittleEndian</Type><Name>ItemLeftCount</Name></Field>
+      </Fields>
+    </Packet>
+    <Packet>
+      <HeaderType>C1HeaderWithSubCode</HeaderType>
+      <Code>D2</Code>
+      <SubCode>04</SubCode>
+      <Name>CashShopItemGiftResponse</Name>
+      <Length>17</Length>
+      <Direction>ServerToClient</Direction>
+      <SentWhen>A cash shop gift request has completed.</SentWhen>
+      <CausedReaction>The client displays the gift result and refreshes balances on success.</CausedReaction>
+      <Fields>
+        <Field><Index>4</Index><Type>Byte</Type><Name>ResultCode</Name></Field>
+        <Field><Index>5</Index><Type>IntegerLittleEndian</Type><Name>ItemLeftCount</Name></Field>
+        <Field><Index>9</Index><Type>Double</Type><Name>LimitedCash</Name></Field>
+      </Fields>
+    </Packet>
+    <Packet>
+      <HeaderType>C1HeaderWithSubCode</HeaderType>
+      <Code>D2</Code>
+      <SubCode>06</SubCode>
+      <Name>CashShopStorageInfo</Name>
+      <Length>12</Length>
+      <Direction>ServerToClient</Direction>
+      <SentWhen>The client requests a page of its cash shop storage.</SentWhen>
+      <CausedReaction>The client resets the storage list and prepares to receive its entries.</CausedReaction>
+      <Fields>
+        <Field><Index>4</Index><Type>ShortLittleEndian</Type><Name>TotalItemCount</Name></Field>
+        <Field><Index>6</Index><Type>ShortLittleEndian</Type><Name>CurrentItemCount</Name></Field>
+        <Field><Index>8</Index><Type>ShortLittleEndian</Type><Name>PageIndex</Name></Field>
+        <Field><Index>10</Index><Type>ShortLittleEndian</Type><Name>TotalPage</Name></Field>
+      </Fields>
+    </Packet>
+    <Packet>
+      <HeaderType>C1HeaderWithSubCode</HeaderType>
+      <Code>D2</Code>
+      <SubCode>0B</SubCode>
+      <Name>CashShopStorageItemConsumeResponse</Name>
+      <Length>5</Length>
+      <Direction>ServerToClient</Direction>
+      <SentWhen>A cash shop storage item consume request has completed.</SentWhen>
+      <CausedReaction>The client displays the consume result and refreshes storage on success.</CausedReaction>
+      <Fields>
+        <Field><Index>4</Index><Type>Byte</Type><Name>Result</Name></Field>
+      </Fields>
+    </Packet>
+    <Packet>
+      <HeaderType>C1HeaderWithSubCode</HeaderType>
+      <Code>D2</Code>
+      <SubCode>0C</SubCode>
+      <Name>CashShopScriptVersion</Name>
+      <Length>10</Length>
+      <Direction>ServerToClient</Direction>
+      <SentWhen>A player enters the game or the authoritative catalog changes.</SentWhen>
+      <CausedReaction>The client loads the matching local catalog and unlocks the cash shop.</CausedReaction>
+      <Fields>
+        <Field><Index>4</Index><Type>ShortLittleEndian</Type><Name>Zone</Name></Field>
+        <Field><Index>6</Index><Type>ShortLittleEndian</Type><Name>Year</Name></Field>
+        <Field><Index>8</Index><Type>ShortLittleEndian</Type><Name>YearId</Name></Field>
+      </Fields>
+    </Packet>
+    <Packet>
+      <HeaderType>C1HeaderWithSubCode</HeaderType>
+      <Code>D2</Code>
+      <SubCode>0D</SubCode>
+      <Name>CashShopStorageItem</Name>
+      <Length>33</Length>
+      <Direction>ServerToClient</Direction>
+      <SentWhen>The server sends an item from the requested normal storage page.</SentWhen>
+      <CausedReaction>The client adds the item to its cash shop storage list.</CausedReaction>
+      <Fields>
+        <Field><Index>4</Index><Type>IntegerLittleEndian</Type><Name>StorageIndex</Name></Field>
+        <Field><Index>8</Index><Type>IntegerLittleEndian</Type><Name>ItemSequence</Name></Field>
+        <Field><Index>12</Index><Type>IntegerLittleEndian</Type><Name>StorageGroupCode</Name></Field>
+        <Field><Index>16</Index><Type>IntegerLittleEndian</Type><Name>ProductSequence</Name></Field>
+        <Field><Index>20</Index><Type>IntegerLittleEndian</Type><Name>PriceSequence</Name></Field>
+        <Field><Index>24</Index><Type>Double</Type><Name>CashPoint</Name></Field>
+        <Field><Index>32</Index><Type>Byte</Type><Name>ItemType</Name></Field>
+      </Fields>
+    </Packet>
+    <Packet>
+      <HeaderType>C1HeaderWithSubCode</HeaderType>
+      <Code>D2</Code>
+      <SubCode>0E</SubCode>
+      <Name>CashShopGiftStorageItem</Name>
+      <Length>244</Length>
+      <Direction>ServerToClient</Direction>
+      <SentWhen>The server sends an item from the requested gift storage page.</SentWhen>
+      <CausedReaction>The client adds the gift and its sender information to the storage list.</CausedReaction>
+      <Fields>
+        <Field><Index>4</Index><Type>IntegerLittleEndian</Type><Name>StorageIndex</Name></Field>
+        <Field><Index>8</Index><Type>IntegerLittleEndian</Type><Name>ItemSequence</Name></Field>
+        <Field><Index>12</Index><Type>IntegerLittleEndian</Type><Name>StorageGroupCode</Name></Field>
+        <Field><Index>16</Index><Type>IntegerLittleEndian</Type><Name>ProductSequence</Name></Field>
+        <Field><Index>20</Index><Type>IntegerLittleEndian</Type><Name>PriceSequence</Name></Field>
+        <Field><Index>24</Index><Type>Double</Type><Name>CashPoint</Name></Field>
+        <Field><Index>32</Index><Type>Byte</Type><Name>ItemType</Name></Field>
+        <Field><Index>33</Index><Type>String</Type><Name>SenderName</Name><Length>11</Length></Field>
+        <Field><Index>44</Index><Type>String</Type><Name>GiftMessage</Name><Length>200</Length></Field>
+      </Fields>
+    </Packet>
+    <Packet>
+      <HeaderType>C1HeaderWithSubCode</HeaderType>
+      <Code>D2</Code>
+      <SubCode>13</SubCode>
+      <Name>CashShopEventItemCount</Name>
+      <Length>6</Length>
+      <Direction>ServerToClient</Direction>
+      <SentWhen>The client requests the event items of a category.</SentWhen>
+      <CausedReaction>The client prepares to receive the event package identifiers.</CausedReaction>
+      <Fields>
+        <Field><Index>4</Index><Type>ShortLittleEndian</Type><Name>ItemCount</Name></Field>
+      </Fields>
+    </Packet>
+    <Packet>
+      <HeaderType>C1HeaderWithSubCode</HeaderType>
+      <Code>D2</Code>
+      <SubCode>14</SubCode>
+      <Name>CashShopEventItemList</Name>
+      <Length>40</Length>
+      <Direction>ServerToClient</Direction>
+      <SentWhen>The server sends a block of event package identifiers.</SentWhen>
+      <CausedReaction>The client adds the event packages to the selected category.</CausedReaction>
+      <Fields>
+        <Field><Index>4</Index><Type>Binary</Type><Name>PackageSequences</Name><Length>36</Length></Field>
+      </Fields>
+    </Packet>
+    <Packet>
+      <HeaderType>C1HeaderWithSubCode</HeaderType>
+      <Code>D2</Code>
+      <SubCode>15</SubCode>
+      <Name>CashShopBannerVersion</Name>
+      <Length>10</Length>
+      <Direction>ServerToClient</Direction>
+      <SentWhen>A player enters the game or the authoritative banner set changes.</SentWhen>
+      <CausedReaction>The client loads the matching local banner set.</CausedReaction>
+      <Fields>
+        <Field><Index>4</Index><Type>ShortLittleEndian</Type><Name>Zone</Name></Field>
+        <Field><Index>6</Index><Type>ShortLittleEndian</Type><Name>Year</Name></Field>
+        <Field><Index>8</Index><Type>ShortLittleEndian</Type><Name>YearId</Name></Field>
+      </Fields>
+    </Packet>
   </Packets>
   <Enums>
     <Enum>
