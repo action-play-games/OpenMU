@@ -288,6 +288,12 @@ internal class EntityFrameworkContextBase : IContext
     {
         using var l = await this._lock.LockAsync();
 
+        if (this.Context.ChangeTracker.Entries<Model.CashShopLedgerEntry>()
+            .Any(entry => entry.State is EntityState.Modified or EntityState.Deleted))
+        {
+            throw new InvalidOperationException("Cash shop ledger entries are append-only and cannot be changed or deleted.");
+        }
+
         // when we have a change publisher attached, we want to get the changed entries before accepting them.
         // Otherwise, we can accept them.
         var acceptChanges = true;

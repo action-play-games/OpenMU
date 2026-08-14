@@ -8,12 +8,13 @@ using System.ComponentModel;
 using System.Runtime.InteropServices;
 using Microsoft.Extensions.Logging;
 using MUnique.OpenMU.GameLogic;
+using MUnique.OpenMU.GameLogic.PlayerActions.CashShop;
 using MUnique.OpenMU.GameLogic.Views.CashShop;
 using MUnique.OpenMU.Network.Packets.ClientToServer;
 using MUnique.OpenMU.PlugIns;
 
 /// <summary>
-/// Rejects purchase requests until the authoritative catalog and economy are active.
+/// Handles purchases against the authoritative catalog and persisted economy.
 /// </summary>
 [PlugIn]
 [Display(Name = "Cash Shop Buy Handler", Description = "Processes cash shop purchase requests.")]
@@ -36,7 +37,30 @@ internal sealed class CashShopItemBuyRequestHandlerPlugIn : ISubPacketHandlerPlu
             return;
         }
 
-        const byte ProductNotAvailable = 4;
-        await player.InvokeViewPlugInAsync<ICashShopViewPlugIn>(p => p.ShowBuyResultAsync(ProductNotAvailable)).ConfigureAwait(false);
+        CashShopItemBuyRequestRef request = packet.Span;
+        var packageMainIndex = request.PackageMainIndex;
+        var category = request.Category;
+        var productMainIndex = request.ProductMainIndex;
+        var itemIndex = request.ItemIndex;
+        var coinIndex = request.CoinIndex;
+        var mileageFlag = request.MileageFlag;
+        byte result;
+        try
+        {
+            var action = new CashShopAction();
+            result = await action.BuyAsync(player, packageMainIndex, category, productMainIndex, itemIndex, coinIndex, mileageFlag).ConfigureAwait(false);
+        }
+        catch (Exception exception)
+        {
+            var correlationId = Guid.NewGuid();
+            player.Logger.LogError(exception, "Cash shop purchase failed. CorrelationId: {CorrelationId}; Player: {Player}.", correlationId, player);
+            result = 255;
+        }
+
+        await player.InvokeViewPlugInAsync<ICashShopViewPlugIn>(p => p.ShowBuyResultAsync(result)).ConfigureAwait(false);
+        if (result == 0 && player.Account is { } account)
+        {
+            await player.InvokeViewPlugInAsync<ICashShopViewPlugIn>(p => p.ShowPointInfoAsync(account.CashShopWCoinC, account.CashShopWCoinP, account.CashShopGoblinPoints)).ConfigureAwait(false);
+        }
     }
 }

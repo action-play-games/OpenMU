@@ -7,7 +7,9 @@ namespace MUnique.OpenMU.GameServer.MessageHandler.CashShop;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 using Microsoft.Extensions.Logging;
+using MUnique.OpenMU.DataModel.Entities;
 using MUnique.OpenMU.GameLogic;
+using MUnique.OpenMU.GameLogic.PlayerActions.CashShop;
 using MUnique.OpenMU.GameLogic.Views.CashShop;
 using MUnique.OpenMU.Network.Packets.ClientToServer;
 using MUnique.OpenMU.PlugIns;
@@ -45,6 +47,9 @@ internal sealed class CashShopStorageListRequestHandlerPlugIn : ISubPacketHandle
             return;
         }
 
-        await player.InvokeViewPlugInAsync<ICashShopViewPlugIn>(p => p.ShowEmptyStorageAsync(pageIndex)).ConfigureAwait(false);
+        var kind = request.InventoryType == (byte)'G' ? CashShopStorageKind.Gift : CashShopStorageKind.Normal;
+        var action = new CashShopAction();
+        var page = await action.GetStoragePageAsync(player, pageIndex, kind).ConfigureAwait(false);
+        await player.InvokeViewPlugInAsync<ICashShopViewPlugIn>(p => p.ShowStorageAsync(page.TotalCount, page.TotalPages, page.PageIndex, page.Items, kind)).ConfigureAwait(false);
     }
 }

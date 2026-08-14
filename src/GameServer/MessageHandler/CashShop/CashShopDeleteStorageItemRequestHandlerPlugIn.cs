@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Runtime.InteropServices;
 using Microsoft.Extensions.Logging;
 using MUnique.OpenMU.GameLogic;
+using MUnique.OpenMU.GameLogic.PlayerActions.CashShop;
 using MUnique.OpenMU.GameLogic.Views.CashShop;
 using MUnique.OpenMU.Network.Packets.ClientToServer;
 using MUnique.OpenMU.PlugIns;
@@ -36,6 +37,23 @@ internal sealed class CashShopDeleteStorageItemRequestHandlerPlugIn : ISubPacket
             return;
         }
 
-        await player.InvokeViewPlugInAsync<ICashShopViewPlugIn>(p => p.ShowEmptyStorageAsync(1)).ConfigureAwait(false);
+        CashShopDeleteStorageItemRequestRef request = packet.Span;
+        var baseItemCode = request.BaseItemCode;
+        var mainItemCode = request.MainItemCode;
+        var productType = request.ProductType;
+        try
+        {
+            var action = new CashShopAction();
+            if (await action.DeleteAsync(player, baseItemCode, mainItemCode, productType).ConfigureAwait(false) is { } kind)
+            {
+                var page = await action.GetStoragePageAsync(player, 1, kind).ConfigureAwait(false);
+                await player.InvokeViewPlugInAsync<ICashShopViewPlugIn>(p => p.ShowStorageAsync(page.TotalCount, page.TotalPages, page.PageIndex, page.Items, kind)).ConfigureAwait(false);
+            }
+        }
+        catch (Exception exception)
+        {
+            var correlationId = Guid.NewGuid();
+            player.Logger.LogError(exception, "Cash shop storage deletion failed. CorrelationId: {CorrelationId}; Player: {Player}.", correlationId, player);
+        }
     }
 }

@@ -8,12 +8,13 @@ using System.ComponentModel;
 using System.Runtime.InteropServices;
 using Microsoft.Extensions.Logging;
 using MUnique.OpenMU.GameLogic;
+using MUnique.OpenMU.GameLogic.PlayerActions.CashShop;
 using MUnique.OpenMU.GameLogic.Views.CashShop;
 using MUnique.OpenMU.Network.Packets.ClientToServer;
 using MUnique.OpenMU.PlugIns;
 
 /// <summary>
-/// Rejects storage consumption until item delivery is active.
+/// Handles atomic storage claims into the player inventory.
 /// </summary>
 [PlugIn]
 [Display(Name = "Cash Shop Storage Consume Handler", Description = "Processes cash shop storage item consumption requests.")]
@@ -36,7 +37,24 @@ internal sealed class CashShopStorageItemConsumeRequestHandlerPlugIn : ISubPacke
             return;
         }
 
-        const byte ItemCannotBeUsed = 22;
-        await player.InvokeViewPlugInAsync<ICashShopViewPlugIn>(p => p.ShowConsumeResultAsync(ItemCannotBeUsed)).ConfigureAwait(false);
+        CashShopStorageItemConsumeRequestRef request = packet.Span;
+        var baseItemCode = request.BaseItemCode;
+        var mainItemCode = request.MainItemCode;
+        var itemIndex = request.ItemIndex;
+        var productType = request.ProductType;
+        byte result;
+        try
+        {
+            var action = new CashShopAction();
+            result = await action.ConsumeAsync(player, baseItemCode, mainItemCode, itemIndex, productType).ConfigureAwait(false);
+        }
+        catch (Exception exception)
+        {
+            var correlationId = Guid.NewGuid();
+            player.Logger.LogError(exception, "Cash shop storage claim failed. CorrelationId: {CorrelationId}; Player: {Player}.", correlationId, player);
+            result = 255;
+        }
+
+        await player.InvokeViewPlugInAsync<ICashShopViewPlugIn>(p => p.ShowConsumeResultAsync(result)).ConfigureAwait(false);
     }
 }

@@ -138,6 +138,46 @@ public class Account
     public bool IsBot { get; set; }
 
     /// <summary>
+    /// Gets or sets the WCoin C balance. Cash shop balances are stored as integers to avoid rounding errors.
+    /// </summary>
+    [ConcurrencyCheck]
+    public long CashShopWCoinC { get; set; }
+
+    /// <summary>
+    /// Gets or sets the WCoin P balance. Cash shop balances are stored as integers to avoid rounding errors.
+    /// </summary>
+    [ConcurrencyCheck]
+    public long CashShopWCoinP { get; set; }
+
+    /// <summary>
+    /// Gets or sets the Goblin Point balance. Cash shop balances are stored as integers to avoid rounding errors.
+    /// </summary>
+    [ConcurrencyCheck]
+    public long CashShopGoblinPoints { get; set; }
+
+    /// <summary>
+    /// Gets or sets the monotonically increasing cash shop revision used for optimistic concurrency checks.
+    /// </summary>
+    [ConcurrencyCheck]
+    public long CashShopRevision { get; set; }
+
+    /// <summary>
+    /// Gets or sets the fingerprint of the last successful purchase or gift request.
+    /// </summary>
+    [MaxLength(64)]
+    public string CashShopLastRequestFingerprint { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Gets or sets the time of the last successful purchase or gift request.
+    /// </summary>
+    public DateTime? CashShopLastRequestAt { get; set; }
+
+    /// <summary>
+    /// Gets or sets the operation identifier of the last successful purchase or gift request.
+    /// </summary>
+    public Guid? CashShopLastOperationId { get; set; }
+
+    /// <summary>
     /// Gets or sets the characters.
     /// </summary>
     [MemberOfAggregate]

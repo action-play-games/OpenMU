@@ -44,6 +44,12 @@ public static class MapsterConfigurator
         Mapster.TypeAdapterConfig.GlobalSettings.NewConfig<MUnique.OpenMU.DataModel.Entities.AppearanceData, MUnique.OpenMU.DataModel.Entities.AppearanceData>()
             .Include<AppearanceData, BasicModel.AppearanceData>();
 
+        Mapster.TypeAdapterConfig.GlobalSettings.NewConfig<MUnique.OpenMU.DataModel.Entities.CashShopLedgerEntry, MUnique.OpenMU.DataModel.Entities.CashShopLedgerEntry>()
+            .Include<CashShopLedgerEntry, BasicModel.CashShopLedgerEntry>();
+
+        Mapster.TypeAdapterConfig.GlobalSettings.NewConfig<MUnique.OpenMU.DataModel.Entities.CashShopStorageItem, MUnique.OpenMU.DataModel.Entities.CashShopStorageItem>()
+            .Include<CashShopStorageItem, BasicModel.CashShopStorageItem>();
+
         Mapster.TypeAdapterConfig.GlobalSettings.NewConfig<MUnique.OpenMU.DataModel.Entities.CastleSiegeData, MUnique.OpenMU.DataModel.Entities.CastleSiegeData>()
             .Include<CastleSiegeData, BasicModel.CastleSiegeData>();
 

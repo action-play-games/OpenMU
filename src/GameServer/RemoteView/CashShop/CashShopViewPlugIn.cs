@@ -6,9 +6,11 @@ namespace MUnique.OpenMU.GameServer.RemoteView.CashShop;
 
 using System.ComponentModel;
 using System.Runtime.InteropServices;
+using MUnique.OpenMU.DataModel.Entities;
 using MUnique.OpenMU.GameLogic.Views.CashShop;
 using MUnique.OpenMU.Network.Packets.ServerToClient;
 using MUnique.OpenMU.PlugIns;
+using CashShopStorageEntry = MUnique.OpenMU.DataModel.Entities.CashShopStorageItem;
 
 /// <summary>
 /// Sends the cash shop view contract to a Season 6 game client.
@@ -51,7 +53,7 @@ public sealed class CashShopViewPlugIn : ICashShopViewPlugIn
     public async ValueTask ShowPointInfoAsync(long wCoinC, long wCoinP, long goblinPoints)
     {
         var connection = this._player.Connection;
-        var totalCash = checked(wCoinC + wCoinP);
+        var totalCash = (double)wCoinC + wCoinP;
         await connection.SendCashShopPointInfoAsync(0, totalCash, wCoinC, wCoinP, 0, goblinPoints).ConfigureAwait(false);
     }
 
@@ -62,10 +64,38 @@ public sealed class CashShopViewPlugIn : ICashShopViewPlugIn
     }
 
     /// <inheritdoc/>
-    public async ValueTask ShowEmptyStorageAsync(uint pageIndex)
+    public async ValueTask ShowStorageAsync(ushort totalItemCount, ushort totalPages, ushort pageIndex, IReadOnlyList<CashShopStorageEntry> items, CashShopStorageKind kind)
     {
-        var safePageIndex = (ushort)Math.Clamp(pageIndex, 1u, ushort.MaxValue);
-        await this._player.Connection.SendCashShopStorageInfoAsync(0, 0, safePageIndex, 0).ConfigureAwait(false);
+        var connection = this._player.Connection;
+        await connection.SendCashShopStorageInfoAsync(totalItemCount, (ushort)items.Count, pageIndex, totalPages).ConfigureAwait(false);
+        foreach (var item in items)
+        {
+            var storageIndex = checked((uint)item.StorageIndex);
+            if (kind == CashShopStorageKind.Gift)
+            {
+                await connection.SendCashShopGiftStorageItemAsync(
+                    storageIndex,
+                    storageIndex,
+                    item.StorageGroupCode,
+                    item.ProductSequence,
+                    item.PriceSequence,
+                    item.Price,
+                    (byte)'P',
+                    item.GiftSender,
+                    item.GiftMessage).ConfigureAwait(false);
+            }
+            else
+            {
+                await connection.SendCashShopStorageItemAsync(
+                    storageIndex,
+                    storageIndex,
+                    item.StorageGroupCode,
+                    item.ProductSequence,
+                    item.PriceSequence,
+                    item.Price,
+                    (byte)'P').ConfigureAwait(false);
+            }
+        }
     }
 
     /// <inheritdoc/>

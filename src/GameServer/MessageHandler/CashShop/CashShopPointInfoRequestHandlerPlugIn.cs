@@ -36,6 +36,12 @@ internal sealed class CashShopPointInfoRequestHandlerPlugIn : ISubPacketHandlerP
             return;
         }
 
-        await player.InvokeViewPlugInAsync<ICashShopViewPlugIn>(p => p.ShowPointInfoAsync(0, 0, 0)).ConfigureAwait(false);
+        if (player.Account is not { } account)
+        {
+            player.Logger.LogWarning("Rejected cash shop point request without an authenticated account from {Player}.", player);
+            return;
+        }
+
+        await player.InvokeViewPlugInAsync<ICashShopViewPlugIn>(p => p.ShowPointInfoAsync(account.CashShopWCoinC, account.CashShopWCoinP, account.CashShopGoblinPoints)).ConfigureAwait(false);
     }
 }

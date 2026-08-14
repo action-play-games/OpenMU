@@ -4,6 +4,8 @@
 
 namespace MUnique.OpenMU.GameLogic.Views.CashShop;
 
+using MUnique.OpenMU.DataModel.Entities;
+
 /// <summary>
 /// View contract for the Season 6 cash shop protocol (C1 D2).
 /// </summary>
@@ -29,10 +31,14 @@ public interface ICashShopViewPlugIn : IViewPlugIn
     ValueTask ShowOpenResultAsync(bool isAllowed);
 
     /// <summary>
-    /// Shows an empty storage page during the protocol bootstrap phase.
+    /// Shows one authoritative storage page.
     /// </summary>
-    /// <param name="pageIndex">Requested one-based page index.</param>
-    ValueTask ShowEmptyStorageAsync(uint pageIndex);
+    /// <param name="totalItemCount">Total active entries.</param>
+    /// <param name="totalPages">Total number of pages.</param>
+    /// <param name="pageIndex">The one-based page index.</param>
+    /// <param name="items">The entries on this page.</param>
+    /// <param name="kind">The normal or gift storage kind.</param>
+    ValueTask ShowStorageAsync(ushort totalItemCount, ushort totalPages, ushort pageIndex, IReadOnlyList<CashShopStorageItem> items, CashShopStorageKind kind);
 
     /// <summary>
     /// Shows a purchase result code.

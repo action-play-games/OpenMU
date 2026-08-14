@@ -102,7 +102,7 @@ public class CashShopPacketTest
             ProductSequence = 44,
             PriceSequence = 55,
             CashPoint = 66,
-            ItemType = (byte)'S',
+            ItemType = (byte)'P',
         };
 
         var read = new CashShopStorageItemRef(data);
@@ -114,6 +114,6 @@ public class CashShopPacketTest
         Assert.That(read.ProductSequence, Is.EqualTo(44));
         Assert.That(read.PriceSequence, Is.EqualTo(55));
         Assert.That(read.CashPoint, Is.EqualTo(66));
-        Assert.That(read.ItemType, Is.EqualTo((byte)'S'));
+        Assert.That(read.ItemType, Is.EqualTo((byte)'P'));
     }
 }
