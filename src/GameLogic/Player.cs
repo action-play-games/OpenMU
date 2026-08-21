@@ -453,6 +453,11 @@ public class Player : AsyncDisposable, IBucketMapObserver, IAttackable, IAttacke
     public bool IsVaultLocked { get; set; }
 
     /// <summary>
+    /// Gets or sets a value indicating whether the server approved the current cash shop session.
+    /// </summary>
+    public bool IsCashShopOpened { get; set; }
+
+    /// <summary>
     /// Gets the shop storage.
     /// </summary>
     public IShopStorage? ShopStorage { get; private set; }
@@ -2329,6 +2334,7 @@ public class Player : AsyncDisposable, IBucketMapObserver, IAttackable, IAttacke
         await this.InvokeViewPlugInAsync<IApplyKeyConfigurationPlugIn>(p => p.ApplyKeyConfigurationAsync()).ConfigureAwait(false);
         await this.InvokeViewPlugInAsync<IQuestStateResponsePlugIn>(p => p.ShowQuestStateAsync(null)).ConfigureAwait(false); // Legacy quest system
         await this.InvokeViewPlugInAsync<ICurrentlyActiveQuestsPlugIn>(p => p.ShowActiveQuestsAsync()).ConfigureAwait(false); // New quest system
+        await this.InvokeViewPlugInAsync<Views.CashShop.ICashShopViewPlugIn>(p => p.InitializeAsync()).ConfigureAwait(false);
 
         this.Attributes.AttributeValueChanged += this.OnAttributeValueChanged;
         this.Attributes.GetOrCreateAttribute(Stats.TransformationSkin).ValueChanged += this.OnTransformationSkinChanged;

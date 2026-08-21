@@ -100,4 +100,46 @@ public interface IPlayerContext : IContext
     /// The account; Otherwise, null.
     /// </returns>
     ValueTask<Account?> GetAccountByCharacterNameAsync(string characterName, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Gets a page of active cash shop storage items for an account.
+    /// </summary>
+    /// <param name="loginName">The receiving account login name.</param>
+    /// <param name="kind">The storage kind.</param>
+    /// <param name="skip">The number of records to skip.</param>
+    /// <param name="count">The maximum number of records to return.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>The active storage items, newest first.</returns>
+    ValueTask<IReadOnlyList<CashShopStorageItem>> GetCashShopStorageItemsAsync(
+        string loginName,
+        CashShopStorageKind kind,
+        int skip,
+        int count,
+        CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Gets the number of active cash shop storage items for an account.
+    /// </summary>
+    /// <param name="loginName">The receiving account login name.</param>
+    /// <param name="kind">The storage kind.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>The active item count.</returns>
+    ValueTask<int> GetCashShopStorageItemCountAsync(
+        string loginName,
+        CashShopStorageKind kind,
+        CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Gets one active cash shop storage item for a mutation in the current unit of work.
+    /// </summary>
+    /// <param name="loginName">The receiving account login name.</param>
+    /// <param name="storageIndex">The legacy storage index.</param>
+    /// <param name="kind">The storage kind.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>The tracked item, or <see langword="null"/>.</returns>
+    ValueTask<CashShopStorageItem?> GetCashShopStorageItemAsync(
+        string loginName,
+        long storageIndex,
+        CashShopStorageKind kind,
+        CancellationToken cancellationToken = default);
 }

@@ -66,6 +66,40 @@ public class EntityDataContext : ExtendedTypeContext
         modelBuilder.Entity<PowerUpDefinitionValue>().Apply();
         modelBuilder.Entity<Model.ConstValueAttribute>().Apply();
         modelBuilder.Entity<Account>().Apply();
+        modelBuilder.Entity<Account>(entity =>
+        {
+            entity.Property(e => e.CashShopWCoinC).IsConcurrencyToken();
+            entity.Property(e => e.CashShopWCoinP).IsConcurrencyToken();
+            entity.Property(e => e.CashShopGoblinPoints).IsConcurrencyToken();
+            entity.Property(e => e.CashShopRevision).IsConcurrencyToken();
+            entity.ToTable(table => table.HasCheckConstraint(
+                "CK_Account_CashShopBalances",
+                "\"CashShopWCoinC\" >= 0 AND \"CashShopWCoinP\" >= 0 AND \"CashShopGoblinPoints\" >= 0 AND \"CashShopRevision\" >= 0"));
+        });
+        modelBuilder.Entity<CashShopStorageItem>(entity =>
+        {
+            entity.Property(e => e.StorageIndex).ValueGeneratedOnAdd();
+            entity.HasIndex(e => e.StorageIndex).IsUnique();
+            entity.HasIndex(e => new { e.AccountId, e.Kind, e.State, e.CreatedAt });
+            entity.HasOne(e => e.RawAccount).WithMany().HasForeignKey(e => e.AccountId).IsRequired().OnDelete(DeleteBehavior.Cascade);
+            entity.ToTable(table =>
+            {
+                table.HasCheckConstraint("CK_CashShopStorageItem_StorageIndex", "\"StorageIndex\" > 0 AND \"StorageIndex\" <= 4294967295");
+                table.HasCheckConstraint("CK_CashShopStorageItem_Price", "\"Price\" >= 0");
+                table.HasCheckConstraint("CK_CashShopStorageItem_Enums", "\"Kind\" BETWEEN 0 AND 1 AND \"State\" BETWEEN 0 AND 2 AND \"Currency\" BETWEEN 0 AND 2");
+            });
+        });
+        modelBuilder.Entity<CashShopLedgerEntry>(entity =>
+        {
+            entity.HasIndex(e => e.OperationId).IsUnique();
+            entity.HasIndex(e => new { e.AccountId, e.CreatedAt });
+            entity.HasOne(e => e.RawAccount).WithMany().HasForeignKey(e => e.AccountId).IsRequired().OnDelete(DeleteBehavior.Restrict);
+            entity.ToTable(table =>
+            {
+                table.HasCheckConstraint("CK_CashShopLedgerEntry_BalanceAfter", "\"BalanceAfter\" >= 0");
+                table.HasCheckConstraint("CK_CashShopLedgerEntry_Enums", "\"Operation\" BETWEEN 0 AND 4 AND \"Currency\" BETWEEN 0 AND 2");
+            });
+        });
         modelBuilder.Entity<Character>().Apply();
         modelBuilder.Entity<CharacterClass>().Apply();
         modelBuilder.Entity<CastleSiegeConfiguration>().Apply();

@@ -81,4 +81,50 @@ public class PlayerInMemoryContext : InMemoryContext, IPlayerContext
         var allAccounts = await this.Provider.GetRepository<Account>().GetAllAsync(cancellationToken).ConfigureAwait(false);
         return allAccounts.FirstOrDefault(account => account.Characters.Any(c => c.Name == characterName));
     }
+
+    /// <inheritdoc />
+    public async ValueTask<IReadOnlyList<DataModel.Entities.CashShopStorageItem>> GetCashShopStorageItemsAsync(
+        string loginName,
+        DataModel.Entities.CashShopStorageKind kind,
+        int skip,
+        int count,
+        CancellationToken cancellationToken = default)
+    {
+        var allItems = await this.Provider.GetRepository<CashShopStorageItem>().GetAllAsync(cancellationToken).ConfigureAwait(false);
+        return allItems
+            .Where(item => item.Account.LoginName == loginName
+                           && item.Kind == kind
+                           && item.State == DataModel.Entities.CashShopStorageState.Active)
+            .OrderByDescending(item => item.CreatedAt)
+            .ThenByDescending(item => item.StorageIndex)
+            .Skip(skip)
+            .Take(count)
+            .ToList();
+    }
+
+    /// <inheritdoc />
+    public async ValueTask<int> GetCashShopStorageItemCountAsync(
+        string loginName,
+        DataModel.Entities.CashShopStorageKind kind,
+        CancellationToken cancellationToken = default)
+    {
+        var allItems = await this.Provider.GetRepository<CashShopStorageItem>().GetAllAsync(cancellationToken).ConfigureAwait(false);
+        return allItems.Count(item => item.Account.LoginName == loginName
+                                      && item.Kind == kind
+                                      && item.State == DataModel.Entities.CashShopStorageState.Active);
+    }
+
+    /// <inheritdoc />
+    public async ValueTask<DataModel.Entities.CashShopStorageItem?> GetCashShopStorageItemAsync(
+        string loginName,
+        long storageIndex,
+        DataModel.Entities.CashShopStorageKind kind,
+        CancellationToken cancellationToken = default)
+    {
+        var allItems = await this.Provider.GetRepository<CashShopStorageItem>().GetAllAsync(cancellationToken).ConfigureAwait(false);
+        return allItems.FirstOrDefault(item => item.Account.LoginName == loginName
+                                               && item.StorageIndex == storageIndex
+                                               && item.Kind == kind
+                                               && item.State == DataModel.Entities.CashShopStorageState.Active);
+    }
 }

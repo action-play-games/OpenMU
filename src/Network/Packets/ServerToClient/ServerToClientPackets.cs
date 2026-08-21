@@ -52,7 +52,7 @@ public readonly struct StoredItem
     /// Calculates the size of the packet for the specified length of <see cref="ItemData"/>.
     /// </summary>
     /// <param name="itemDataLength">The length in bytes of <see cref="ItemData"/> on which the required size depends.</param>
-        
+
     public static int GetRequiredSize(int itemDataLength) => itemDataLength + 1;
 }
 
@@ -170,7 +170,7 @@ public readonly struct PlayerShopItemExtended
     /// Calculates the size of the packet for the specified length of <see cref="ItemData"/>.
     /// </summary>
     /// <param name="itemDataLength">The length in bytes of <see cref="ItemData"/> on which the required size depends.</param>
-        
+
     public static int GetRequiredSize(int itemDataLength) => itemDataLength + 9;
 }
 
@@ -575,7 +575,7 @@ public readonly struct GameServerEntered
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(GameServerEntered packet) => packet._data; 
+    public static implicit operator Memory<byte>(GameServerEntered packet) => packet._data;
 }
 
 
@@ -672,7 +672,7 @@ public readonly struct MagicEffectStatus
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MagicEffectStatus packet) => packet._data; 
+    public static implicit operator Memory<byte>(MagicEffectStatus packet) => packet._data;
 }
 
 
@@ -760,7 +760,7 @@ public readonly struct WeatherStatusUpdate
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(WeatherStatusUpdate packet) => packet._data; 
+    public static implicit operator Memory<byte>(WeatherStatusUpdate packet) => packet._data;
 }
 
 
@@ -923,13 +923,13 @@ public readonly struct AddCharacterToScopeExtended
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(AddCharacterToScopeExtended packet) => packet._data; 
+    public static implicit operator Memory<byte>(AddCharacterToScopeExtended packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified length of <see cref="AppearanceAndEffects"/>.
     /// </summary>
     /// <param name="appearanceAndEffectsLength">The length in bytes of <see cref="AppearanceAndEffects"/> on which the required size depends.</param>
-        
+
     public static int GetRequiredSize(int appearanceAndEffectsLength) => appearanceAndEffectsLength + 26;
 }
 
@@ -1004,14 +1004,14 @@ public readonly partial struct AddCharactersToScope
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(AddCharactersToScope packet) => packet._data; 
+    public static implicit operator Memory<byte>(AddCharactersToScope packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="CharacterData"/> and it's size.
     /// </summary>
     /// <param name="charactersCount">The count of <see cref="CharacterData"/> from which the size will be calculated.</param>
     /// <param name="structLength">The length of <see cref="CharacterData"/> from which the size will be calculated.</param>
-          
+
     public static int GetRequiredSize(int charactersCount, int structLength) => charactersCount * structLength + 5;
 
 
@@ -1129,7 +1129,7 @@ public readonly struct CharacterData
     /// Calculates the size of the packet for the specified count of <see cref="EffectId"/>.
     /// </summary>
     /// <param name="effectsCount">The count of <see cref="EffectId"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int effectsCount) => effectsCount * EffectId.Length + 36;
 }
 
@@ -1242,13 +1242,13 @@ public readonly struct AddCharactersToScope075
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(AddCharactersToScope075 packet) => packet._data; 
+    public static implicit operator Memory<byte>(AddCharactersToScope075 packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="CharacterData"/>.
     /// </summary>
     /// <param name="charactersCount">The count of <see cref="CharacterData"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int charactersCount) => charactersCount * CharacterData.Length + 5;
 
 
@@ -1467,13 +1467,13 @@ public readonly struct AddCharactersToScope095
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(AddCharactersToScope095 packet) => packet._data; 
+    public static implicit operator Memory<byte>(AddCharactersToScope095 packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="CharacterData"/>.
     /// </summary>
     /// <param name="charactersCount">The count of <see cref="CharacterData"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int charactersCount) => charactersCount * CharacterData.Length + 5;
 
 
@@ -1692,13 +1692,13 @@ public readonly struct AddNpcsToScope
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(AddNpcsToScope packet) => packet._data; 
+    public static implicit operator Memory<byte>(AddNpcsToScope packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="NpcData"/>.
     /// </summary>
     /// <param name="nPCsCount">The count of <see cref="NpcData"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int nPCsCount) => nPCsCount * NpcData.Length + 5;
 
 
@@ -1873,13 +1873,13 @@ public readonly struct AddNpcsToScope075
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(AddNpcsToScope075 packet) => packet._data; 
+    public static implicit operator Memory<byte>(AddNpcsToScope075 packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="NpcData"/>.
     /// </summary>
     /// <param name="nPCsCount">The count of <see cref="NpcData"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int nPCsCount) => nPCsCount * NpcData.Length + 5;
 
 
@@ -2081,13 +2081,13 @@ public readonly struct AddNpcsToScope095
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(AddNpcsToScope095 packet) => packet._data; 
+    public static implicit operator Memory<byte>(AddNpcsToScope095 packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="NpcData"/>.
     /// </summary>
     /// <param name="nPCsCount">The count of <see cref="NpcData"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int nPCsCount) => nPCsCount * NpcData.Length + 5;
 
 
@@ -2284,14 +2284,14 @@ public readonly partial struct AddSummonedMonstersToScope
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(AddSummonedMonstersToScope packet) => packet._data; 
+    public static implicit operator Memory<byte>(AddSummonedMonstersToScope packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="SummonedMonsterData"/> and it's size.
     /// </summary>
     /// <param name="summonedMonstersCount">The count of <see cref="SummonedMonsterData"/> from which the size will be calculated.</param>
     /// <param name="structLength">The length of <see cref="SummonedMonsterData"/> from which the size will be calculated.</param>
-          
+
     public static int GetRequiredSize(int summonedMonstersCount, int structLength) => summonedMonstersCount * structLength + 5;
 
 
@@ -2401,7 +2401,7 @@ public readonly struct SummonedMonsterData
     /// Calculates the size of the packet for the specified count of <see cref="EffectId"/>.
     /// </summary>
     /// <param name="effectsCount">The count of <see cref="EffectId"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int effectsCount) => effectsCount * EffectId.Length + 20;
 }
 
@@ -2514,13 +2514,13 @@ public readonly struct AddSummonedMonstersToScope075
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(AddSummonedMonstersToScope075 packet) => packet._data; 
+    public static implicit operator Memory<byte>(AddSummonedMonstersToScope075 packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="SummonedMonsterData"/>.
     /// </summary>
     /// <param name="summonedMonstersCount">The count of <see cref="SummonedMonsterData"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int summonedMonstersCount) => summonedMonstersCount * SummonedMonsterData.Length + 5;
 
 
@@ -2731,13 +2731,13 @@ public readonly struct AddSummonedMonstersToScope095
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(AddSummonedMonstersToScope095 packet) => packet._data; 
+    public static implicit operator Memory<byte>(AddSummonedMonstersToScope095 packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="SummonedMonsterData"/>.
     /// </summary>
     /// <param name="summonedMonstersCount">The count of <see cref="SummonedMonsterData"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int summonedMonstersCount) => summonedMonstersCount * SummonedMonsterData.Length + 5;
 
 
@@ -2948,13 +2948,13 @@ public readonly struct MapObjectOutOfScope
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MapObjectOutOfScope packet) => packet._data; 
+    public static implicit operator Memory<byte>(MapObjectOutOfScope packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="ObjectId"/>.
     /// </summary>
     /// <param name="objectsCount">The count of <see cref="ObjectId"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int objectsCount) => objectsCount * ObjectId.Length + 4;
 
 
@@ -3084,7 +3084,7 @@ public readonly struct ObjectGotKilled
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ObjectGotKilled packet) => packet._data; 
+    public static implicit operator Memory<byte>(ObjectGotKilled packet) => packet._data;
 }
 
 
@@ -3190,7 +3190,7 @@ public readonly struct ObjectAnimation
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ObjectAnimation packet) => packet._data; 
+    public static implicit operator Memory<byte>(ObjectAnimation packet) => packet._data;
 }
 
 
@@ -3305,7 +3305,7 @@ public readonly struct AreaSkillAnimation
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(AreaSkillAnimation packet) => packet._data; 
+    public static implicit operator Memory<byte>(AreaSkillAnimation packet) => packet._data;
 }
 
 
@@ -3402,7 +3402,7 @@ public readonly struct SkillAnimation
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(SkillAnimation packet) => packet._data; 
+    public static implicit operator Memory<byte>(SkillAnimation packet) => packet._data;
 }
 
 
@@ -3517,7 +3517,7 @@ public readonly struct AreaSkillAnimation075
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(AreaSkillAnimation075 packet) => packet._data; 
+    public static implicit operator Memory<byte>(AreaSkillAnimation075 packet) => packet._data;
 }
 
 
@@ -3632,7 +3632,7 @@ public readonly struct AreaSkillAnimation095
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(AreaSkillAnimation095 packet) => packet._data; 
+    public static implicit operator Memory<byte>(AreaSkillAnimation095 packet) => packet._data;
 }
 
 
@@ -3738,7 +3738,7 @@ public readonly struct SkillAnimation075
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(SkillAnimation075 packet) => packet._data; 
+    public static implicit operator Memory<byte>(SkillAnimation075 packet) => packet._data;
 }
 
 
@@ -3844,7 +3844,7 @@ public readonly struct SkillAnimation095
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(SkillAnimation095 packet) => packet._data; 
+    public static implicit operator Memory<byte>(SkillAnimation095 packet) => packet._data;
 }
 
 
@@ -3932,7 +3932,7 @@ public readonly struct MagicEffectCancelled
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MagicEffectCancelled packet) => packet._data; 
+    public static implicit operator Memory<byte>(MagicEffectCancelled packet) => packet._data;
 }
 
 
@@ -4020,7 +4020,7 @@ public readonly struct MagicEffectCancelled075
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MagicEffectCancelled075 packet) => packet._data; 
+    public static implicit operator Memory<byte>(MagicEffectCancelled075 packet) => packet._data;
 }
 
 
@@ -4117,7 +4117,7 @@ public readonly struct RageAttack
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(RageAttack packet) => packet._data; 
+    public static implicit operator Memory<byte>(RageAttack packet) => packet._data;
 }
 
 
@@ -4201,13 +4201,13 @@ public readonly struct RageAttackRangeResponse
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(RageAttackRangeResponse packet) => packet._data; 
+    public static implicit operator Memory<byte>(RageAttackRangeResponse packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="RageTarget"/>.
     /// </summary>
     /// <param name="targetsCount">The count of <see cref="RageTarget"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int targetsCount) => targetsCount * RageTarget.Length + 6;
 
 
@@ -4322,13 +4322,13 @@ public readonly struct AppearanceChanged
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(AppearanceChanged packet) => packet._data; 
+    public static implicit operator Memory<byte>(AppearanceChanged packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified length of <see cref="ItemData"/>.
     /// </summary>
     /// <param name="itemDataLength">The length in bytes of <see cref="ItemData"/> on which the required size depends.</param>
-        
+
     public static int GetRequiredSize(int itemDataLength) => itemDataLength + 5;
 }
 
@@ -4471,7 +4471,7 @@ public readonly struct AppearanceChangedExtended
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(AppearanceChangedExtended packet) => packet._data; 
+    public static implicit operator Memory<byte>(AppearanceChangedExtended packet) => packet._data;
 }
 
 
@@ -4554,7 +4554,7 @@ public readonly struct ObjectMessage
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ObjectMessage packet) => packet._data; 
+    public static implicit operator Memory<byte>(ObjectMessage packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified field content.
@@ -4645,7 +4645,7 @@ public readonly struct PartyRequest
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(PartyRequest packet) => packet._data; 
+    public static implicit operator Memory<byte>(PartyRequest packet) => packet._data;
 }
 
 
@@ -4731,13 +4731,13 @@ public readonly struct PartyList
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(PartyList packet) => packet._data; 
+    public static implicit operator Memory<byte>(PartyList packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="PartyMember"/>.
     /// </summary>
     /// <param name="membersCount">The count of <see cref="PartyMember"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int membersCount) => membersCount * PartyMember.Length + 5;
 
 
@@ -4910,13 +4910,13 @@ public readonly struct PartyList075
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(PartyList075 packet) => packet._data; 
+    public static implicit operator Memory<byte>(PartyList075 packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="PartyMember"/>.
     /// </summary>
     /// <param name="membersCount">The count of <see cref="PartyMember"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int membersCount) => membersCount * PartyMember.Length + 5;
 
 
@@ -5064,7 +5064,7 @@ public readonly struct RemovePartyMember
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(RemovePartyMember packet) => packet._data; 
+    public static implicit operator Memory<byte>(RemovePartyMember packet) => packet._data;
 }
 
 
@@ -5143,13 +5143,13 @@ public readonly struct PartyHealthUpdate
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(PartyHealthUpdate packet) => packet._data; 
+    public static implicit operator Memory<byte>(PartyHealthUpdate packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="PartyMemberHealth"/>.
     /// </summary>
     /// <param name="membersCount">The count of <see cref="PartyMemberHealth"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int membersCount) => membersCount * PartyMemberHealth.Length + 4;
 
 
@@ -5278,7 +5278,7 @@ public readonly struct PlayerShopOpenSuccessful
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(PlayerShopOpenSuccessful packet) => packet._data; 
+    public static implicit operator Memory<byte>(PlayerShopOpenSuccessful packet) => packet._data;
 }
 
 
@@ -5378,7 +5378,7 @@ public readonly struct TradeButtonStateChanged
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(TradeButtonStateChanged packet) => packet._data; 
+    public static implicit operator Memory<byte>(TradeButtonStateChanged packet) => packet._data;
 }
 
 
@@ -5455,7 +5455,7 @@ public readonly struct TradeMoneySetResponse
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(TradeMoneySetResponse packet) => packet._data; 
+    public static implicit operator Memory<byte>(TradeMoneySetResponse packet) => packet._data;
 }
 
 
@@ -5534,7 +5534,7 @@ public readonly struct TradeMoneyUpdate
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(TradeMoneyUpdate packet) => packet._data; 
+    public static implicit operator Memory<byte>(TradeMoneyUpdate packet) => packet._data;
 }
 
 
@@ -5640,7 +5640,7 @@ public readonly struct TradeRequestAnswer
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(TradeRequestAnswer packet) => packet._data; 
+    public static implicit operator Memory<byte>(TradeRequestAnswer packet) => packet._data;
 }
 
 
@@ -5719,7 +5719,7 @@ public readonly struct TradeRequest
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(TradeRequest packet) => packet._data; 
+    public static implicit operator Memory<byte>(TradeRequest packet) => packet._data;
 }
 
 
@@ -5829,7 +5829,7 @@ public readonly struct TradeFinished
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(TradeFinished packet) => packet._data; 
+    public static implicit operator Memory<byte>(TradeFinished packet) => packet._data;
 }
 
 
@@ -5911,13 +5911,13 @@ public readonly struct TradeItemAdded
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(TradeItemAdded packet) => packet._data; 
+    public static implicit operator Memory<byte>(TradeItemAdded packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified length of <see cref="ItemData"/>.
     /// </summary>
     /// <param name="itemDataLength">The length in bytes of <see cref="ItemData"/> on which the required size depends.</param>
-        
+
     public static int GetRequiredSize(int itemDataLength) => itemDataLength + 4;
 }
 
@@ -5997,7 +5997,7 @@ public readonly struct TradeItemRemoved
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(TradeItemRemoved packet) => packet._data; 
+    public static implicit operator Memory<byte>(TradeItemRemoved packet) => packet._data;
 }
 
 
@@ -6164,7 +6164,7 @@ public readonly struct LoginResponse
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(LoginResponse packet) => packet._data; 
+    public static implicit operator Memory<byte>(LoginResponse packet) => packet._data;
 }
 
 
@@ -6250,7 +6250,7 @@ public readonly struct LogoutResponse
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(LogoutResponse packet) => packet._data; 
+    public static implicit operator Memory<byte>(LogoutResponse packet) => packet._data;
 }
 
 
@@ -6358,7 +6358,7 @@ public readonly struct ChatMessage
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ChatMessage packet) => packet._data; 
+    public static implicit operator Memory<byte>(ChatMessage packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified field content.
@@ -6521,7 +6521,7 @@ public readonly struct ObjectHit
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ObjectHit packet) => packet._data; 
+    public static implicit operator Memory<byte>(ObjectHit packet) => packet._data;
 }
 
 
@@ -6681,7 +6681,7 @@ public readonly struct ObjectHitExtended
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ObjectHitExtended packet) => packet._data; 
+    public static implicit operator Memory<byte>(ObjectHitExtended packet) => packet._data;
 }
 
 
@@ -6787,7 +6787,7 @@ public readonly struct ObjectMoved
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ObjectMoved packet) => packet._data; 
+    public static implicit operator Memory<byte>(ObjectMoved packet) => packet._data;
 }
 
 
@@ -6914,13 +6914,13 @@ public readonly struct ObjectWalked
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ObjectWalked packet) => packet._data; 
+    public static implicit operator Memory<byte>(ObjectWalked packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified length of <see cref="StepData"/>.
     /// </summary>
     /// <param name="stepDataLength">The length in bytes of <see cref="StepData"/> on which the required size depends.</param>
-        
+
     public static int GetRequiredSize(int stepDataLength) => stepDataLength + 8;
 }
 
@@ -7066,13 +7066,13 @@ public readonly struct ObjectWalkedExtended
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ObjectWalkedExtended packet) => packet._data; 
+    public static implicit operator Memory<byte>(ObjectWalkedExtended packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified length of <see cref="StepData"/>.
     /// </summary>
     /// <param name="stepDataLength">The length in bytes of <see cref="StepData"/> on which the required size depends.</param>
-        
+
     public static int GetRequiredSize(int stepDataLength) => stepDataLength + 10;
 }
 
@@ -7179,7 +7179,7 @@ public readonly struct ObjectWalked075
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ObjectWalked075 packet) => packet._data; 
+    public static implicit operator Memory<byte>(ObjectWalked075 packet) => packet._data;
 }
 
 
@@ -7276,7 +7276,7 @@ public readonly struct ExperienceGained
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ExperienceGained packet) => packet._data; 
+    public static implicit operator Memory<byte>(ExperienceGained packet) => packet._data;
 }
 
 
@@ -7427,7 +7427,7 @@ public readonly struct ExperienceGainedExtended
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ExperienceGainedExtended packet) => packet._data; 
+    public static implicit operator Memory<byte>(ExperienceGainedExtended packet) => packet._data;
 }
 
 
@@ -7550,7 +7550,7 @@ public readonly struct MapChanged
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MapChanged packet) => packet._data; 
+    public static implicit operator Memory<byte>(MapChanged packet) => packet._data;
 }
 
 
@@ -7666,7 +7666,7 @@ public readonly struct MapChanged075
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MapChanged075 packet) => packet._data; 
+    public static implicit operator Memory<byte>(MapChanged075 packet) => packet._data;
 }
 
 
@@ -7746,13 +7746,13 @@ public readonly struct ApplyKeyConfiguration
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ApplyKeyConfiguration packet) => packet._data; 
+    public static implicit operator Memory<byte>(ApplyKeyConfiguration packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified length of <see cref="Configuration"/>.
     /// </summary>
     /// <param name="configurationLength">The length in bytes of <see cref="Configuration"/> on which the required size depends.</param>
-        
+
     public static int GetRequiredSize(int configurationLength) => configurationLength + 4;
 }
 
@@ -7832,14 +7832,14 @@ public readonly struct ItemsDropped
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ItemsDropped packet) => packet._data; 
+    public static implicit operator Memory<byte>(ItemsDropped packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="DroppedItem"/> and it's size.
     /// </summary>
     /// <param name="itemsCount">The count of <see cref="DroppedItem"/> from which the size will be calculated.</param>
     /// <param name="structLength">The length of <see cref="DroppedItem"/> from which the size will be calculated.</param>
-          
+
     public static int GetRequiredSize(int itemsCount, int structLength) => itemsCount * structLength + 5;
 
 
@@ -7907,7 +7907,7 @@ public readonly struct DroppedItem
     /// Calculates the size of the packet for the specified length of <see cref="ItemData"/>.
     /// </summary>
     /// <param name="itemDataLength">The length in bytes of <see cref="ItemData"/> on which the required size depends.</param>
-        
+
     public static int GetRequiredSize(int itemDataLength) => itemDataLength + 4;
 }
 }
@@ -8045,7 +8045,7 @@ public readonly partial struct MoneyDropped
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MoneyDropped packet) => packet._data; 
+    public static implicit operator Memory<byte>(MoneyDropped packet) => packet._data;
 }
 
 
@@ -8160,7 +8160,7 @@ public readonly struct MoneyDroppedExtended
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MoneyDroppedExtended packet) => packet._data; 
+    public static implicit operator Memory<byte>(MoneyDroppedExtended packet) => packet._data;
 }
 
 
@@ -8296,7 +8296,7 @@ public readonly partial struct MoneyDropped075
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MoneyDropped075 packet) => packet._data; 
+    public static implicit operator Memory<byte>(MoneyDropped075 packet) => packet._data;
 }
 
 
@@ -8375,13 +8375,13 @@ public readonly struct ItemDropRemoved
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ItemDropRemoved packet) => packet._data; 
+    public static implicit operator Memory<byte>(ItemDropRemoved packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="DroppedItemId"/>.
     /// </summary>
     /// <param name="itemDataCount">The count of <see cref="DroppedItemId"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int itemDataCount) => itemDataCount * DroppedItemId.Length + 5;
 
 
@@ -8496,13 +8496,13 @@ public readonly struct ItemAddedToInventory
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ItemAddedToInventory packet) => packet._data; 
+    public static implicit operator Memory<byte>(ItemAddedToInventory packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified length of <see cref="ItemData"/>.
     /// </summary>
     /// <param name="itemDataLength">The length in bytes of <see cref="ItemData"/> on which the required size depends.</param>
-        
+
     public static int GetRequiredSize(int itemDataLength) => itemDataLength + 4;
 }
 
@@ -8591,7 +8591,7 @@ public readonly struct ItemDropResponse
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ItemDropResponse packet) => packet._data; 
+    public static implicit operator Memory<byte>(ItemDropResponse packet) => packet._data;
 }
 
 
@@ -8691,7 +8691,7 @@ public readonly struct ItemPickUpRequestFailed
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ItemPickUpRequestFailed packet) => packet._data; 
+    public static implicit operator Memory<byte>(ItemPickUpRequestFailed packet) => packet._data;
 }
 
 
@@ -8777,7 +8777,7 @@ public readonly struct InventoryMoneyUpdate
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(InventoryMoneyUpdate packet) => packet._data; 
+    public static implicit operator Memory<byte>(InventoryMoneyUpdate packet) => packet._data;
 }
 
 
@@ -8868,13 +8868,13 @@ public readonly struct ItemMoved
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ItemMoved packet) => packet._data; 
+    public static implicit operator Memory<byte>(ItemMoved packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified length of <see cref="ItemData"/>.
     /// </summary>
     /// <param name="itemDataLength">The length in bytes of <see cref="ItemData"/> on which the required size depends.</param>
-        
+
     public static int GetRequiredSize(int itemDataLength) => itemDataLength + 5;
 }
 
@@ -8955,13 +8955,13 @@ public readonly struct ItemMoveRequestFailed
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ItemMoveRequestFailed packet) => packet._data; 
+    public static implicit operator Memory<byte>(ItemMoveRequestFailed packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified length of <see cref="ItemData"/>.
     /// </summary>
     /// <param name="itemDataLength">The length in bytes of <see cref="ItemData"/> on which the required size depends.</param>
-        
+
     public static int GetRequiredSize(int itemDataLength) => itemDataLength + 5;
 }
 
@@ -9057,7 +9057,7 @@ public readonly struct CurrentHealthAndShield
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(CurrentHealthAndShield packet) => packet._data; 
+    public static implicit operator Memory<byte>(CurrentHealthAndShield packet) => packet._data;
 }
 
 
@@ -9152,7 +9152,7 @@ public readonly struct MaximumHealthAndShield
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MaximumHealthAndShield packet) => packet._data; 
+    public static implicit operator Memory<byte>(MaximumHealthAndShield packet) => packet._data;
 }
 
 
@@ -9283,7 +9283,7 @@ public readonly struct CurrentStatsExtended
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(CurrentStatsExtended packet) => packet._data; 
+    public static implicit operator Memory<byte>(CurrentStatsExtended packet) => packet._data;
 }
 
 
@@ -9396,7 +9396,7 @@ public readonly struct MaximumStatsExtended
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MaximumStatsExtended packet) => packet._data; 
+    public static implicit operator Memory<byte>(MaximumStatsExtended packet) => packet._data;
 }
 
 
@@ -9491,7 +9491,7 @@ public readonly struct ItemConsumptionFailed
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ItemConsumptionFailed packet) => packet._data; 
+    public static implicit operator Memory<byte>(ItemConsumptionFailed packet) => packet._data;
 }
 
 
@@ -9586,7 +9586,7 @@ public readonly struct ItemConsumptionFailedExtended
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ItemConsumptionFailedExtended packet) => packet._data; 
+    public static implicit operator Memory<byte>(ItemConsumptionFailedExtended packet) => packet._data;
 }
 
 
@@ -9708,7 +9708,7 @@ public readonly struct BaseStatsExtended
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(BaseStatsExtended packet) => packet._data; 
+    public static implicit operator Memory<byte>(BaseStatsExtended packet) => packet._data;
 }
 
 
@@ -9803,7 +9803,7 @@ public readonly struct CurrentManaAndAbility
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(CurrentManaAndAbility packet) => packet._data; 
+    public static implicit operator Memory<byte>(CurrentManaAndAbility packet) => packet._data;
 }
 
 
@@ -9898,7 +9898,7 @@ public readonly struct MaximumManaAndAbility
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MaximumManaAndAbility packet) => packet._data; 
+    public static implicit operator Memory<byte>(MaximumManaAndAbility packet) => packet._data;
 }
 
 
@@ -9987,7 +9987,7 @@ public readonly struct ItemRemoved
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ItemRemoved packet) => packet._data; 
+    public static implicit operator Memory<byte>(ItemRemoved packet) => packet._data;
 }
 
 
@@ -10096,7 +10096,7 @@ public readonly struct ConsumeItemWithEffect
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ConsumeItemWithEffect packet) => packet._data; 
+    public static implicit operator Memory<byte>(ConsumeItemWithEffect packet) => packet._data;
 }
 
 
@@ -10193,7 +10193,7 @@ public readonly struct ItemDurabilityChanged
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ItemDurabilityChanged packet) => packet._data; 
+    public static implicit operator Memory<byte>(ItemDurabilityChanged packet) => packet._data;
 }
 
 
@@ -10382,7 +10382,7 @@ public readonly struct FruitConsumptionResponse
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(FruitConsumptionResponse packet) => packet._data; 
+    public static implicit operator Memory<byte>(FruitConsumptionResponse packet) => packet._data;
 }
 
 
@@ -10625,7 +10625,7 @@ public readonly struct EffectItemConsumption
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(EffectItemConsumption packet) => packet._data; 
+    public static implicit operator Memory<byte>(EffectItemConsumption packet) => packet._data;
 }
 
 
@@ -10830,7 +10830,7 @@ public readonly struct NpcWindowResponse
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(NpcWindowResponse packet) => packet._data; 
+    public static implicit operator Memory<byte>(NpcWindowResponse packet) => packet._data;
 }
 
 
@@ -10939,14 +10939,14 @@ public readonly struct StoreItemList
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(StoreItemList packet) => packet._data; 
+    public static implicit operator Memory<byte>(StoreItemList packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="StoredItem"/> and it's size.
     /// </summary>
     /// <param name="itemsCount">The count of <see cref="StoredItem"/> from which the size will be calculated.</param>
     /// <param name="structLength">The length of <see cref="StoredItem"/> from which the size will be calculated.</param>
-          
+
     public static int GetRequiredSize(int itemsCount, int structLength) => itemsCount * structLength + 6;
 }
 
@@ -11024,7 +11024,7 @@ public readonly struct NpcItemBuyFailed
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(NpcItemBuyFailed packet) => packet._data; 
+    public static implicit operator Memory<byte>(NpcItemBuyFailed packet) => packet._data;
 }
 
 
@@ -11106,13 +11106,13 @@ public readonly struct ItemBought
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ItemBought packet) => packet._data; 
+    public static implicit operator Memory<byte>(ItemBought packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified length of <see cref="ItemData"/>.
     /// </summary>
     /// <param name="itemDataLength">The length in bytes of <see cref="ItemData"/> on which the required size depends.</param>
-        
+
     public static int GetRequiredSize(int itemDataLength) => itemDataLength + 4;
 }
 
@@ -11201,7 +11201,7 @@ public readonly struct NpcItemSellResult
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(NpcItemSellResult packet) => packet._data; 
+    public static implicit operator Memory<byte>(NpcItemSellResult packet) => packet._data;
 }
 
 
@@ -11337,7 +11337,7 @@ public readonly struct PlayerShopSetItemPriceResponse
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(PlayerShopSetItemPriceResponse packet) => packet._data; 
+    public static implicit operator Memory<byte>(PlayerShopSetItemPriceResponse packet) => packet._data;
 }
 
 
@@ -11433,7 +11433,7 @@ public readonly struct PlayerShopClosed
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(PlayerShopClosed packet) => packet._data; 
+    public static implicit operator Memory<byte>(PlayerShopClosed packet) => packet._data;
 }
 
 
@@ -11528,7 +11528,7 @@ public readonly struct PlayerShopItemSoldToPlayer
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(PlayerShopItemSoldToPlayer packet) => packet._data; 
+    public static implicit operator Memory<byte>(PlayerShopItemSoldToPlayer packet) => packet._data;
 }
 
 
@@ -11614,7 +11614,7 @@ public readonly struct ClosePlayerShopDialog
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ClosePlayerShopDialog packet) => packet._data; 
+    public static implicit operator Memory<byte>(ClosePlayerShopDialog packet) => packet._data;
 }
 
 
@@ -11762,13 +11762,13 @@ public readonly struct PlayerShopItemList
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(PlayerShopItemList packet) => packet._data; 
+    public static implicit operator Memory<byte>(PlayerShopItemList packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="PlayerShopItem"/>.
     /// </summary>
     /// <param name="itemsCount">The count of <see cref="PlayerShopItem"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int itemsCount) => itemsCount * PlayerShopItem.Length + 55;
 }
 
@@ -11937,7 +11937,7 @@ public readonly struct PlayerShopBuyResult
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(PlayerShopBuyResult packet) => packet._data; 
+    public static implicit operator Memory<byte>(PlayerShopBuyResult packet) => packet._data;
 }
 
 
@@ -12100,13 +12100,13 @@ public readonly struct PlayerShopBuyResultExtended
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(PlayerShopBuyResultExtended packet) => packet._data; 
+    public static implicit operator Memory<byte>(PlayerShopBuyResultExtended packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified length of <see cref="ItemData"/>.
     /// </summary>
     /// <param name="itemDataLength">The length in bytes of <see cref="ItemData"/> on which the required size depends.</param>
-        
+
     public static int GetRequiredSize(int itemDataLength) => itemDataLength + 8;
 }
 
@@ -12255,14 +12255,14 @@ public readonly struct PlayerShopItemListExtended
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(PlayerShopItemListExtended packet) => packet._data; 
+    public static implicit operator Memory<byte>(PlayerShopItemListExtended packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="PlayerShopItemExtended"/> and it's size.
     /// </summary>
     /// <param name="itemsCount">The count of <see cref="PlayerShopItemExtended"/> from which the size will be calculated.</param>
     /// <param name="structLength">The length of <see cref="PlayerShopItemExtended"/> from which the size will be calculated.</param>
-          
+
     public static int GetRequiredSize(int itemsCount, int structLength) => itemsCount * structLength + 55;
 }
 
@@ -12349,13 +12349,13 @@ public readonly struct PlayerShops
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(PlayerShops packet) => packet._data; 
+    public static implicit operator Memory<byte>(PlayerShops packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="PlayerShop"/>.
     /// </summary>
     /// <param name="shopsCount">The count of <see cref="PlayerShop"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int shopsCount) => shopsCount * PlayerShop.Length + 6;
 
 
@@ -12476,13 +12476,13 @@ public readonly struct AddTransformedCharactersToScope075
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(AddTransformedCharactersToScope075 packet) => packet._data; 
+    public static implicit operator Memory<byte>(AddTransformedCharactersToScope075 packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="CharacterData"/>.
     /// </summary>
     /// <param name="charactersCount">The count of <see cref="CharacterData"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int charactersCount) => charactersCount * CharacterData.Length + 5;
 
 
@@ -12697,14 +12697,14 @@ public readonly partial struct AddTransformedCharactersToScope
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(AddTransformedCharactersToScope packet) => packet._data; 
+    public static implicit operator Memory<byte>(AddTransformedCharactersToScope packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="CharacterData"/> and it's size.
     /// </summary>
     /// <param name="charactersCount">The count of <see cref="CharacterData"/> from which the size will be calculated.</param>
     /// <param name="structLength">The length of <see cref="CharacterData"/> from which the size will be calculated.</param>
-          
+
     public static int GetRequiredSize(int charactersCount, int structLength) => charactersCount * structLength + 5;
 
 
@@ -12831,7 +12831,7 @@ public readonly struct CharacterData
     /// Calculates the size of the packet for the specified count of <see cref="EffectId"/>.
     /// </summary>
     /// <param name="effectsCount">The count of <see cref="EffectId"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int effectsCount) => effectsCount * EffectId.Length + 38;
 }
 
@@ -13003,13 +13003,13 @@ public readonly struct ChangeTerrainAttributes
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ChangeTerrainAttributes packet) => packet._data; 
+    public static implicit operator Memory<byte>(ChangeTerrainAttributes packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="TerrainArea"/>.
     /// </summary>
     /// <param name="areasCount">The count of <see cref="TerrainArea"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int areasCount) => areasCount * TerrainArea.Length + 7;
 
 
@@ -13178,7 +13178,7 @@ public readonly struct ShowEffect
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ShowEffect packet) => packet._data; 
+    public static implicit operator Memory<byte>(ShowEffect packet) => packet._data;
 }
 
 
@@ -13291,13 +13291,13 @@ public readonly struct CharacterList
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(CharacterList packet) => packet._data; 
+    public static implicit operator Memory<byte>(CharacterList packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="CharacterData"/>.
     /// </summary>
     /// <param name="charactersCount">The count of <see cref="CharacterData"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int charactersCount) => charactersCount * CharacterData.Length + 8;
 
 
@@ -13496,13 +13496,13 @@ public readonly struct CharacterListExtended
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(CharacterListExtended packet) => packet._data; 
+    public static implicit operator Memory<byte>(CharacterListExtended packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="CharacterData"/>.
     /// </summary>
     /// <param name="charactersCount">The count of <see cref="CharacterData"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int charactersCount) => charactersCount * CharacterData.Length + 8;
 
 
@@ -13674,7 +13674,7 @@ public readonly struct CharacterClassCreationUnlock
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(CharacterClassCreationUnlock packet) => packet._data; 
+    public static implicit operator Memory<byte>(CharacterClassCreationUnlock packet) => packet._data;
 }
 
 
@@ -13760,13 +13760,13 @@ public readonly struct CharacterList075
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(CharacterList075 packet) => packet._data; 
+    public static implicit operator Memory<byte>(CharacterList075 packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="CharacterData"/>.
     /// </summary>
     /// <param name="charactersCount">The count of <see cref="CharacterData"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int charactersCount) => charactersCount * CharacterData.Length + 5;
 
 
@@ -13929,13 +13929,13 @@ public readonly struct CharacterList095
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(CharacterList095 packet) => packet._data; 
+    public static implicit operator Memory<byte>(CharacterList095 packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="CharacterData"/>.
     /// </summary>
     /// <param name="charactersCount">The count of <see cref="CharacterData"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int charactersCount) => charactersCount * CharacterData.Length + 5;
 
 
@@ -14152,20 +14152,20 @@ public readonly struct CharacterCreationSuccessful
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(CharacterCreationSuccessful packet) => packet._data; 
+    public static implicit operator Memory<byte>(CharacterCreationSuccessful packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified length of <see cref="PreviewData"/>.
     /// </summary>
     /// <param name="previewDataLength">The length in bytes of <see cref="PreviewData"/> on which the required size depends.</param>
-        
+
     public static int GetRequiredSize(int previewDataLength) => previewDataLength + 20;
 }
 
 
 /// <summary>
 /// Is sent by the server when: After the server processed a character creation request without success.
-/// Causes reaction on client side: A message is shown that it failed. 
+/// Causes reaction on client side: A message is shown that it failed.
 /// </summary>
 public readonly struct CharacterCreationFailed
 {
@@ -14236,7 +14236,7 @@ public readonly struct CharacterCreationFailed
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(CharacterCreationFailed packet) => packet._data; 
+    public static implicit operator Memory<byte>(CharacterCreationFailed packet) => packet._data;
 }
 
 
@@ -14385,7 +14385,7 @@ public readonly struct RespawnAfterDeath075
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(RespawnAfterDeath075 packet) => packet._data; 
+    public static implicit operator Memory<byte>(RespawnAfterDeath075 packet) => packet._data;
 }
 
 
@@ -14543,7 +14543,7 @@ public readonly struct RespawnAfterDeath095
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(RespawnAfterDeath095 packet) => packet._data; 
+    public static implicit operator Memory<byte>(RespawnAfterDeath095 packet) => packet._data;
 }
 
 
@@ -14710,7 +14710,7 @@ public readonly struct RespawnAfterDeath
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(RespawnAfterDeath packet) => packet._data; 
+    public static implicit operator Memory<byte>(RespawnAfterDeath packet) => packet._data;
 }
 
 
@@ -14877,7 +14877,7 @@ public readonly struct RespawnAfterDeathExtended
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(RespawnAfterDeathExtended packet) => packet._data; 
+    public static implicit operator Memory<byte>(RespawnAfterDeathExtended packet) => packet._data;
 }
 
 
@@ -14972,7 +14972,7 @@ public readonly struct PoisonDamage
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(PoisonDamage packet) => packet._data; 
+    public static implicit operator Memory<byte>(PoisonDamage packet) => packet._data;
 }
 
 
@@ -15067,7 +15067,7 @@ public readonly struct HeroStateChanged
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(HeroStateChanged packet) => packet._data; 
+    public static implicit operator Memory<byte>(HeroStateChanged packet) => packet._data;
 }
 
 
@@ -15181,7 +15181,7 @@ public readonly struct SkillAdded
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(SkillAdded packet) => packet._data; 
+    public static implicit operator Memory<byte>(SkillAdded packet) => packet._data;
 }
 
 
@@ -15286,7 +15286,7 @@ public readonly struct SkillRemoved
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(SkillRemoved packet) => packet._data; 
+    public static implicit operator Memory<byte>(SkillRemoved packet) => packet._data;
 }
 
 
@@ -15372,13 +15372,13 @@ public readonly struct SkillListUpdate
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(SkillListUpdate packet) => packet._data; 
+    public static implicit operator Memory<byte>(SkillListUpdate packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="SkillEntry"/>.
     /// </summary>
     /// <param name="skillsCount">The count of <see cref="SkillEntry"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int skillsCount) => skillsCount * SkillEntry.Length + 6;
 
 
@@ -15534,7 +15534,7 @@ public readonly struct SkillAdded075
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(SkillAdded075 packet) => packet._data; 
+    public static implicit operator Memory<byte>(SkillAdded075 packet) => packet._data;
 }
 
 
@@ -15639,7 +15639,7 @@ public readonly struct SkillRemoved075
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(SkillRemoved075 packet) => packet._data; 
+    public static implicit operator Memory<byte>(SkillRemoved075 packet) => packet._data;
 }
 
 
@@ -15744,7 +15744,7 @@ public readonly struct SkillAdded095
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(SkillAdded095 packet) => packet._data; 
+    public static implicit operator Memory<byte>(SkillAdded095 packet) => packet._data;
 }
 
 
@@ -15849,7 +15849,7 @@ public readonly struct SkillRemoved095
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(SkillRemoved095 packet) => packet._data; 
+    public static implicit operator Memory<byte>(SkillRemoved095 packet) => packet._data;
 }
 
 
@@ -15935,13 +15935,13 @@ public readonly struct SkillListUpdate075
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(SkillListUpdate075 packet) => packet._data; 
+    public static implicit operator Memory<byte>(SkillListUpdate075 packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="SkillEntry"/>.
     /// </summary>
     /// <param name="skillsCount">The count of <see cref="SkillEntry"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int skillsCount) => skillsCount * SkillEntry.Length + 5;
 
 
@@ -16069,7 +16069,7 @@ public readonly struct CharacterFocused
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(CharacterFocused packet) => packet._data; 
+    public static implicit operator Memory<byte>(CharacterFocused packet) => packet._data;
 }
 
 
@@ -16191,7 +16191,7 @@ public readonly struct CharacterStatIncreaseResponse
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(CharacterStatIncreaseResponse packet) => packet._data; 
+    public static implicit operator Memory<byte>(CharacterStatIncreaseResponse packet) => packet._data;
 }
 
 
@@ -16322,7 +16322,7 @@ public readonly struct CharacterStatIncreaseResponseExtended
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(CharacterStatIncreaseResponseExtended packet) => packet._data; 
+    public static implicit operator Memory<byte>(CharacterStatIncreaseResponseExtended packet) => packet._data;
 }
 
 
@@ -16429,7 +16429,7 @@ public readonly struct CharacterDeleteResponse
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(CharacterDeleteResponse packet) => packet._data; 
+    public static implicit operator Memory<byte>(CharacterDeleteResponse packet) => packet._data;
 }
 
 
@@ -16596,7 +16596,7 @@ public readonly struct CharacterLevelUpdate
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(CharacterLevelUpdate packet) => packet._data; 
+    public static implicit operator Memory<byte>(CharacterLevelUpdate packet) => packet._data;
 }
 
 
@@ -16916,7 +16916,7 @@ public readonly struct CharacterInformation
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(CharacterInformation packet) => packet._data; 
+    public static implicit operator Memory<byte>(CharacterInformation packet) => packet._data;
 }
 
 
@@ -17083,7 +17083,7 @@ public readonly struct CharacterLevelUpdateExtended
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(CharacterLevelUpdateExtended packet) => packet._data; 
+    public static implicit operator Memory<byte>(CharacterLevelUpdateExtended packet) => packet._data;
 }
 
 
@@ -17439,7 +17439,7 @@ public readonly struct CharacterInformationExtended
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(CharacterInformationExtended packet) => packet._data; 
+    public static implicit operator Memory<byte>(CharacterInformationExtended packet) => packet._data;
 }
 
 
@@ -17669,7 +17669,7 @@ public readonly struct CharacterInformation075
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(CharacterInformation075 packet) => packet._data; 
+    public static implicit operator Memory<byte>(CharacterInformation075 packet) => packet._data;
 }
 
 
@@ -17953,7 +17953,7 @@ public readonly struct CharacterInformation097
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(CharacterInformation097 packet) => packet._data; 
+    public static implicit operator Memory<byte>(CharacterInformation097 packet) => packet._data;
 }
 
 
@@ -18039,14 +18039,14 @@ public readonly struct CharacterInventory
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(CharacterInventory packet) => packet._data; 
+    public static implicit operator Memory<byte>(CharacterInventory packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="StoredItem"/> and it's size.
     /// </summary>
     /// <param name="itemsCount">The count of <see cref="StoredItem"/> from which the size will be calculated.</param>
     /// <param name="structLength">The length of <see cref="StoredItem"/> from which the size will be calculated.</param>
-          
+
     public static int GetRequiredSize(int itemsCount, int structLength) => itemsCount * structLength + 6;
 }
 
@@ -18136,13 +18136,13 @@ public readonly struct InventoryItemUpgraded
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(InventoryItemUpgraded packet) => packet._data; 
+    public static implicit operator Memory<byte>(InventoryItemUpgraded packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified length of <see cref="ItemData"/>.
     /// </summary>
     /// <param name="itemDataLength">The length in bytes of <see cref="ItemData"/> on which the required size depends.</param>
-        
+
     public static int GetRequiredSize(int itemDataLength) => itemDataLength + 5;
 }
 
@@ -18229,7 +18229,7 @@ public readonly struct SummonHealthUpdate
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(SummonHealthUpdate packet) => packet._data; 
+    public static implicit operator Memory<byte>(SummonHealthUpdate packet) => packet._data;
 }
 
 
@@ -18315,7 +18315,7 @@ public readonly struct GuildSoccerTimeUpdate
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(GuildSoccerTimeUpdate packet) => packet._data; 
+    public static implicit operator Memory<byte>(GuildSoccerTimeUpdate packet) => packet._data;
 }
 
 
@@ -18428,7 +18428,7 @@ public readonly struct GuildSoccerScoreUpdate
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(GuildSoccerScoreUpdate packet) => packet._data; 
+    public static implicit operator Memory<byte>(GuildSoccerScoreUpdate packet) => packet._data;
 }
 
 
@@ -18532,7 +18532,7 @@ public readonly struct ServerCommand
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ServerCommand packet) => packet._data; 
+    public static implicit operator Memory<byte>(ServerCommand packet) => packet._data;
 }
 
 
@@ -18637,7 +18637,7 @@ public readonly struct ShowFireworks
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ShowFireworks packet) => packet._data; 
+    public static implicit operator Memory<byte>(ShowFireworks packet) => packet._data;
 }
 
 
@@ -18742,7 +18742,7 @@ public readonly struct ShowChristmasFireworks
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ShowChristmasFireworks packet) => packet._data; 
+    public static implicit operator Memory<byte>(ShowChristmasFireworks packet) => packet._data;
 }
 
 
@@ -18847,7 +18847,7 @@ public readonly struct PlayFanfareSound
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(PlayFanfareSound packet) => packet._data; 
+    public static implicit operator Memory<byte>(PlayFanfareSound packet) => packet._data;
 }
 
 
@@ -18943,7 +18943,7 @@ public readonly struct ShowSwirl
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ShowSwirl packet) => packet._data; 
+    public static implicit operator Memory<byte>(ShowSwirl packet) => packet._data;
 }
 
 
@@ -19092,7 +19092,7 @@ public readonly struct MasterStatsUpdate
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MasterStatsUpdate packet) => packet._data; 
+    public static implicit operator Memory<byte>(MasterStatsUpdate packet) => packet._data;
 }
 
 
@@ -19241,7 +19241,7 @@ public readonly struct MasterStatsUpdateExtended
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MasterStatsUpdateExtended packet) => packet._data; 
+    public static implicit operator Memory<byte>(MasterStatsUpdateExtended packet) => packet._data;
 }
 
 
@@ -19390,7 +19390,7 @@ public readonly struct MasterCharacterLevelUpdate
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MasterCharacterLevelUpdate packet) => packet._data; 
+    public static implicit operator Memory<byte>(MasterCharacterLevelUpdate packet) => packet._data;
 }
 
 
@@ -19539,7 +19539,7 @@ public readonly struct MasterCharacterLevelUpdateExtended
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MasterCharacterLevelUpdateExtended packet) => packet._data; 
+    public static implicit operator Memory<byte>(MasterCharacterLevelUpdateExtended packet) => packet._data;
 }
 
 
@@ -19679,7 +19679,7 @@ public readonly struct MasterSkillLevelUpdate
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MasterSkillLevelUpdate packet) => packet._data; 
+    public static implicit operator Memory<byte>(MasterSkillLevelUpdate packet) => packet._data;
 }
 
 
@@ -19765,13 +19765,13 @@ public readonly struct MasterSkillList
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MasterSkillList packet) => packet._data; 
+    public static implicit operator Memory<byte>(MasterSkillList packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="MasterSkillEntry"/>.
     /// </summary>
     /// <param name="skillsCount">The count of <see cref="MasterSkillEntry"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int skillsCount) => skillsCount * MasterSkillEntry.Length + 12;
 
 
@@ -19836,8 +19836,8 @@ public readonly struct MasterSkillEntry
 
 
 /// <summary>
-/// Is sent by the server when: 
-/// Causes reaction on client side: 
+/// Is sent by the server when:
+/// Causes reaction on client side:
 /// </summary>
 public readonly struct ServerMessage
 {
@@ -19935,7 +19935,7 @@ public readonly struct ServerMessage
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ServerMessage packet) => packet._data; 
+    public static implicit operator Memory<byte>(ServerMessage packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified field content.
@@ -20026,7 +20026,7 @@ public readonly struct GuildJoinRequest
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(GuildJoinRequest packet) => packet._data; 
+    public static implicit operator Memory<byte>(GuildJoinRequest packet) => packet._data;
 }
 
 
@@ -20151,7 +20151,7 @@ public readonly struct GuildJoinResponse
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(GuildJoinResponse packet) => packet._data; 
+    public static implicit operator Memory<byte>(GuildJoinResponse packet) => packet._data;
 }
 
 
@@ -20266,13 +20266,13 @@ public readonly struct GuildList
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(GuildList packet) => packet._data; 
+    public static implicit operator Memory<byte>(GuildList packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="GuildMember"/>.
     /// </summary>
     /// <param name="membersCount">The count of <see cref="GuildMember"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int membersCount) => membersCount * GuildMember.Length + 24;
 
 
@@ -20438,13 +20438,13 @@ public readonly struct GuildList075
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(GuildList075 packet) => packet._data; 
+    public static implicit operator Memory<byte>(GuildList075 packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="GuildMember"/>.
     /// </summary>
     /// <param name="membersCount">The count of <see cref="GuildMember"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int membersCount) => membersCount * GuildMember.Length + 13;
 
 
@@ -20610,7 +20610,7 @@ public readonly struct GuildKickResponse
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(GuildKickResponse packet) => packet._data; 
+    public static implicit operator Memory<byte>(GuildKickResponse packet) => packet._data;
 }
 
 
@@ -20680,7 +20680,7 @@ public readonly struct ShowGuildMasterDialog
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ShowGuildMasterDialog packet) => packet._data; 
+    public static implicit operator Memory<byte>(ShowGuildMasterDialog packet) => packet._data;
 }
 
 
@@ -20750,7 +20750,7 @@ public readonly struct ShowGuildCreationDialog
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ShowGuildCreationDialog packet) => packet._data; 
+    public static implicit operator Memory<byte>(ShowGuildCreationDialog packet) => packet._data;
 }
 
 
@@ -20854,7 +20854,7 @@ public readonly struct GuildCreationResult
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(GuildCreationResult packet) => packet._data; 
+    public static implicit operator Memory<byte>(GuildCreationResult packet) => packet._data;
 }
 
 
@@ -20942,7 +20942,7 @@ public readonly struct GuildMemberLeftGuild
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(GuildMemberLeftGuild packet) => packet._data; 
+    public static implicit operator Memory<byte>(GuildMemberLeftGuild packet) => packet._data;
 }
 
 
@@ -21062,7 +21062,7 @@ public readonly struct GuildWarRequestResult
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(GuildWarRequestResult packet) => packet._data; 
+    public static implicit operator Memory<byte>(GuildWarRequestResult packet) => packet._data;
 }
 
 
@@ -21150,7 +21150,7 @@ public readonly struct GuildWarRequest
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(GuildWarRequest packet) => packet._data; 
+    public static implicit operator Memory<byte>(GuildWarRequest packet) => packet._data;
 }
 
 
@@ -21247,7 +21247,7 @@ public readonly struct GuildWarDeclared
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(GuildWarDeclared packet) => packet._data; 
+    public static implicit operator Memory<byte>(GuildWarDeclared packet) => packet._data;
 }
 
 
@@ -21361,7 +21361,7 @@ public readonly struct GuildWarEnded
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(GuildWarEnded packet) => packet._data; 
+    public static implicit operator Memory<byte>(GuildWarEnded packet) => packet._data;
 }
 
 
@@ -21459,7 +21459,7 @@ public readonly struct GuildWarScoreUpdate
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(GuildWarScoreUpdate packet) => packet._data; 
+    public static implicit operator Memory<byte>(GuildWarScoreUpdate packet) => packet._data;
 }
 
 
@@ -21556,7 +21556,7 @@ public readonly struct GuildRelationshipRequest
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(GuildRelationshipRequest packet) => packet._data; 
+    public static implicit operator Memory<byte>(GuildRelationshipRequest packet) => packet._data;
 }
 
 
@@ -21773,7 +21773,7 @@ public readonly struct GuildRelationshipChangeResult
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(GuildRelationshipChangeResult packet) => packet._data; 
+    public static implicit operator Memory<byte>(GuildRelationshipChangeResult packet) => packet._data;
 }
 
 
@@ -21879,13 +21879,13 @@ public readonly struct AllianceList
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(AllianceList packet) => packet._data; 
+    public static implicit operator Memory<byte>(AllianceList packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="AllianceGuildEntry"/>.
     /// </summary>
     /// <param name="guildsCount">The count of <see cref="AllianceGuildEntry"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int guildsCount) => guildsCount * AllianceGuildEntry.Length + 8;
 
 
@@ -22039,7 +22039,7 @@ public readonly struct RemoveAllianceGuildResult
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(RemoveAllianceGuildResult packet) => packet._data; 
+    public static implicit operator Memory<byte>(RemoveAllianceGuildResult packet) => packet._data;
 }
 
 
@@ -22118,13 +22118,13 @@ public readonly struct AssignCharacterToGuild
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(AssignCharacterToGuild packet) => packet._data; 
+    public static implicit operator Memory<byte>(AssignCharacterToGuild packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="GuildMemberRelation"/>.
     /// </summary>
     /// <param name="membersCount">The count of <see cref="GuildMemberRelation"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int membersCount) => membersCount * GuildMemberRelation.Length + 5;
 
 
@@ -22263,13 +22263,13 @@ public readonly struct AssignCharacterToGuild075
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(AssignCharacterToGuild075 packet) => packet._data; 
+    public static implicit operator Memory<byte>(AssignCharacterToGuild075 packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="GuildMemberRelation"/>.
     /// </summary>
     /// <param name="membersCount">The count of <see cref="GuildMemberRelation"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int membersCount) => membersCount * GuildMemberRelation.Length + 5;
 
 
@@ -22425,7 +22425,7 @@ public readonly struct GuildInformation
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(GuildInformation packet) => packet._data; 
+    public static implicit operator Memory<byte>(GuildInformation packet) => packet._data;
 }
 
 
@@ -22504,13 +22504,13 @@ public readonly struct GuildInformations075
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(GuildInformations075 packet) => packet._data; 
+    public static implicit operator Memory<byte>(GuildInformations075 packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="GuildInfo"/>.
     /// </summary>
     /// <param name="guildsCount">The count of <see cref="GuildInfo"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int guildsCount) => guildsCount * GuildInfo.Length + 5;
 
 
@@ -22656,7 +22656,7 @@ public readonly struct SingleGuildInformation075
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(SingleGuildInformation075 packet) => packet._data; 
+    public static implicit operator Memory<byte>(SingleGuildInformation075 packet) => packet._data;
 }
 
 
@@ -22753,7 +22753,7 @@ public readonly struct VaultMoneyUpdate
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(VaultMoneyUpdate packet) => packet._data; 
+    public static implicit operator Memory<byte>(VaultMoneyUpdate packet) => packet._data;
 }
 
 
@@ -22823,7 +22823,7 @@ public readonly struct VaultClosed
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(VaultClosed packet) => packet._data; 
+    public static implicit operator Memory<byte>(VaultClosed packet) => packet._data;
 }
 
 
@@ -22938,7 +22938,7 @@ public readonly struct VaultProtectionInformation
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(VaultProtectionInformation packet) => packet._data; 
+    public static implicit operator Memory<byte>(VaultProtectionInformation packet) => packet._data;
 }
 
 
@@ -23081,13 +23081,13 @@ public readonly struct ItemCraftingResult
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ItemCraftingResult packet) => packet._data; 
+    public static implicit operator Memory<byte>(ItemCraftingResult packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified length of <see cref="ItemData"/>.
     /// </summary>
     /// <param name="itemDataLength">The length in bytes of <see cref="ItemData"/> on which the required size depends.</param>
-        
+
     public static int GetRequiredSize(int itemDataLength) => itemDataLength + 4;
 }
 
@@ -23158,7 +23158,7 @@ public readonly struct CraftingDialogClosed075
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(CraftingDialogClosed075 packet) => packet._data; 
+    public static implicit operator Memory<byte>(CraftingDialogClosed075 packet) => packet._data;
 }
 
 
@@ -23313,7 +23313,7 @@ public readonly partial struct LegacyQuestStateList
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(LegacyQuestStateList packet) => packet._data; 
+    public static implicit operator Memory<byte>(LegacyQuestStateList packet) => packet._data;
 }
 
 
@@ -23401,7 +23401,7 @@ public readonly struct LegacyQuestStateDialog
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(LegacyQuestStateDialog packet) => packet._data; 
+    public static implicit operator Memory<byte>(LegacyQuestStateDialog packet) => packet._data;
 }
 
 
@@ -23498,7 +23498,7 @@ public readonly struct LegacySetQuestStateResponse
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(LegacySetQuestStateResponse packet) => packet._data; 
+    public static implicit operator Memory<byte>(LegacySetQuestStateResponse packet) => packet._data;
 }
 
 
@@ -23626,7 +23626,7 @@ public readonly struct LegacyQuestReward
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(LegacyQuestReward packet) => packet._data; 
+    public static implicit operator Memory<byte>(LegacyQuestReward packet) => packet._data;
 }
 
 
@@ -23727,7 +23727,7 @@ public readonly struct LegacyQuestMonsterKillInfo
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(LegacyQuestMonsterKillInfo packet) => packet._data; 
+    public static implicit operator Memory<byte>(LegacyQuestMonsterKillInfo packet) => packet._data;
 
 
 /// <summary>
@@ -23866,7 +23866,7 @@ public readonly struct PetMode
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(PetMode packet) => packet._data; 
+    public static implicit operator Memory<byte>(PetMode packet) => packet._data;
 }
 
 
@@ -23989,7 +23989,7 @@ public readonly struct PetAttack
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(PetAttack packet) => packet._data; 
+    public static implicit operator Memory<byte>(PetAttack packet) => packet._data;
 }
 
 
@@ -24113,7 +24113,7 @@ public readonly struct PetInfoResponse
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(PetInfoResponse packet) => packet._data; 
+    public static implicit operator Memory<byte>(PetInfoResponse packet) => packet._data;
 }
 
 
@@ -24159,7 +24159,7 @@ public readonly struct DuelStartResult
             FailedBy_ = 28,
 
         /// <summary>
-        /// The duel couldn't be started, because one of the players has not enough money, usually 30000. 
+        /// The duel couldn't be started, because one of the players has not enough money, usually 30000.
         /// </summary>
             FailedByNotEnoughMoney = 30,
     }
@@ -24258,7 +24258,7 @@ public readonly struct DuelStartResult
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(DuelStartResult packet) => packet._data; 
+    public static implicit operator Memory<byte>(DuelStartResult packet) => packet._data;
 }
 
 
@@ -24353,7 +24353,7 @@ public readonly struct DuelStartRequest
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(DuelStartRequest packet) => packet._data; 
+    public static implicit operator Memory<byte>(DuelStartRequest packet) => packet._data;
 }
 
 
@@ -24458,7 +24458,7 @@ public readonly struct DuelEnd
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(DuelEnd packet) => packet._data; 
+    public static implicit operator Memory<byte>(DuelEnd packet) => packet._data;
 }
 
 
@@ -24571,7 +24571,7 @@ public readonly struct DuelScore
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(DuelScore packet) => packet._data; 
+    public static implicit operator Memory<byte>(DuelScore packet) => packet._data;
 }
 
 
@@ -24702,7 +24702,7 @@ public readonly struct DuelHealthUpdate
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(DuelHealthUpdate packet) => packet._data; 
+    public static implicit operator Memory<byte>(DuelHealthUpdate packet) => packet._data;
 }
 
 
@@ -24784,7 +24784,7 @@ public readonly struct DuelStatus
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(DuelStatus packet) => packet._data; 
+    public static implicit operator Memory<byte>(DuelStatus packet) => packet._data;
 
 
 /// <summary>
@@ -24974,7 +24974,7 @@ public readonly struct DuelInit
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(DuelInit packet) => packet._data; 
+    public static implicit operator Memory<byte>(DuelInit packet) => packet._data;
 }
 
 
@@ -25051,7 +25051,7 @@ public readonly struct DuelHealthBarInit
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(DuelHealthBarInit packet) => packet._data; 
+    public static implicit operator Memory<byte>(DuelHealthBarInit packet) => packet._data;
 }
 
 
@@ -25137,7 +25137,7 @@ public readonly struct DuelSpectatorAdded
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(DuelSpectatorAdded packet) => packet._data; 
+    public static implicit operator Memory<byte>(DuelSpectatorAdded packet) => packet._data;
 }
 
 
@@ -25223,7 +25223,7 @@ public readonly struct DuelSpectatorRemoved
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(DuelSpectatorRemoved packet) => packet._data; 
+    public static implicit operator Memory<byte>(DuelSpectatorRemoved packet) => packet._data;
 }
 
 
@@ -25314,7 +25314,7 @@ public readonly struct DuelSpectatorList
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(DuelSpectatorList packet) => packet._data; 
+    public static implicit operator Memory<byte>(DuelSpectatorList packet) => packet._data;
 
 
 /// <summary>
@@ -25441,7 +25441,7 @@ public readonly struct DuelFinished
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(DuelFinished packet) => packet._data; 
+    public static implicit operator Memory<byte>(DuelFinished packet) => packet._data;
 }
 
 
@@ -25539,7 +25539,7 @@ public readonly struct SkillStageUpdate
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(SkillStageUpdate packet) => packet._data; 
+    public static implicit operator Memory<byte>(SkillStageUpdate packet) => packet._data;
 }
 
 
@@ -25625,7 +25625,7 @@ public readonly struct IllusionTempleEnterResult
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(IllusionTempleEnterResult packet) => packet._data; 
+    public static implicit operator Memory<byte>(IllusionTempleEnterResult packet) => packet._data;
 }
 
 
@@ -25774,13 +25774,13 @@ public readonly struct IllusionTempleState
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(IllusionTempleState packet) => packet._data; 
+    public static implicit operator Memory<byte>(IllusionTempleState packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="IllusionTemplePartyEntry"/>.
     /// </summary>
     /// <param name="partyMembersCount">The count of <see cref="IllusionTemplePartyEntry"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int partyMembersCount) => partyMembersCount * IllusionTemplePartyEntry.Length + 12;
 
 
@@ -25953,7 +25953,7 @@ public readonly struct IllusionTempleSkillUsageResult
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(IllusionTempleSkillUsageResult packet) => packet._data; 
+    public static implicit operator Memory<byte>(IllusionTempleSkillUsageResult packet) => packet._data;
 }
 
 
@@ -26084,7 +26084,7 @@ public readonly struct IllusionTempleUserCount
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(IllusionTempleUserCount packet) => packet._data; 
+    public static implicit operator Memory<byte>(IllusionTempleUserCount packet) => packet._data;
 }
 
 
@@ -26188,13 +26188,13 @@ public readonly struct IllusionTempleResult
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(IllusionTempleResult packet) => packet._data; 
+    public static implicit operator Memory<byte>(IllusionTempleResult packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="PlayerResult"/>.
     /// </summary>
     /// <param name="playersCount">The count of <see cref="PlayerResult"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int playersCount) => playersCount * PlayerResult.Length + 10;
 
 
@@ -26361,7 +26361,7 @@ public readonly struct IllusionTempleSkillPointUpdate
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(IllusionTempleSkillPointUpdate packet) => packet._data; 
+    public static implicit operator Memory<byte>(IllusionTempleSkillPointUpdate packet) => packet._data;
 }
 
 
@@ -26456,7 +26456,7 @@ public readonly struct IllusionTempleSkillEnded
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(IllusionTempleSkillEnded packet) => packet._data; 
+    public static implicit operator Memory<byte>(IllusionTempleSkillEnded packet) => packet._data;
 }
 
 
@@ -26551,7 +26551,7 @@ public readonly struct IllusionTempleHolyItemRelics
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(IllusionTempleHolyItemRelics packet) => packet._data; 
+    public static implicit operator Memory<byte>(IllusionTempleHolyItemRelics packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified field content.
@@ -26658,7 +26658,7 @@ public readonly struct IllusionTempleSkillEnd
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(IllusionTempleSkillEnd packet) => packet._data; 
+    public static implicit operator Memory<byte>(IllusionTempleSkillEnd packet) => packet._data;
 }
 
 
@@ -26762,13 +26762,13 @@ public readonly struct ChainLightningHitInfo
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ChainLightningHitInfo packet) => packet._data; 
+    public static implicit operator Memory<byte>(ChainLightningHitInfo packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="ChainTarget"/>.
     /// </summary>
     /// <param name="targetsCount">The count of <see cref="ChainTarget"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int targetsCount) => targetsCount * ChainTarget.Length + 10;
 
 
@@ -26905,7 +26905,7 @@ public readonly struct MuHelperStatusUpdate
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MuHelperStatusUpdate packet) => packet._data; 
+    public static implicit operator Memory<byte>(MuHelperStatusUpdate packet) => packet._data;
 }
 
 
@@ -26983,13 +26983,13 @@ public readonly struct MuHelperConfigurationData
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MuHelperConfigurationData packet) => packet._data; 
+    public static implicit operator Memory<byte>(MuHelperConfigurationData packet) => packet._data;
 }
 
 
 /// <summary>
 /// Is sent by the server when: After entering the game with a character.
-/// Causes reaction on client side: 
+/// Causes reaction on client side:
 /// </summary>
 public readonly struct MessengerInitialization
 {
@@ -27080,13 +27080,13 @@ public readonly struct MessengerInitialization
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MessengerInitialization packet) => packet._data; 
+    public static implicit operator Memory<byte>(MessengerInitialization packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="Friend"/>.
     /// </summary>
     /// <param name="friendsCount">The count of <see cref="Friend"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int friendsCount) => friendsCount * Friend.Length + 7;
 
 
@@ -27224,7 +27224,7 @@ public readonly struct FriendAdded
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(FriendAdded packet) => packet._data; 
+    public static implicit operator Memory<byte>(FriendAdded packet) => packet._data;
 }
 
 
@@ -27303,7 +27303,7 @@ public readonly struct FriendRequest
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(FriendRequest packet) => packet._data; 
+    public static implicit operator Memory<byte>(FriendRequest packet) => packet._data;
 }
 
 
@@ -27389,7 +27389,7 @@ public readonly struct FriendDeleted
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(FriendDeleted packet) => packet._data; 
+    public static implicit operator Memory<byte>(FriendDeleted packet) => packet._data;
 }
 
 
@@ -27477,7 +27477,7 @@ public readonly struct FriendOnlineStateUpdate
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(FriendOnlineStateUpdate packet) => packet._data; 
+    public static implicit operator Memory<byte>(FriendOnlineStateUpdate packet) => packet._data;
 }
 
 
@@ -27601,7 +27601,7 @@ public readonly struct LetterSendResponse
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(LetterSendResponse packet) => packet._data; 
+    public static implicit operator Memory<byte>(LetterSendResponse packet) => packet._data;
 }
 
 
@@ -27737,7 +27737,7 @@ public readonly struct AddLetter
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(AddLetter packet) => packet._data; 
+    public static implicit operator Memory<byte>(AddLetter packet) => packet._data;
 }
 
 
@@ -27855,7 +27855,7 @@ public readonly struct OpenLetter
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(OpenLetter packet) => packet._data; 
+    public static implicit operator Memory<byte>(OpenLetter packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified field content.
@@ -27976,7 +27976,7 @@ public readonly struct OpenLetterExtended
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(OpenLetterExtended packet) => packet._data; 
+    public static implicit operator Memory<byte>(OpenLetterExtended packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified field content.
@@ -28077,7 +28077,7 @@ public readonly struct RemoveLetter
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(RemoveLetter packet) => packet._data; 
+    public static implicit operator Memory<byte>(RemoveLetter packet) => packet._data;
 }
 
 
@@ -28202,7 +28202,7 @@ public readonly struct ChatRoomConnectionInfo
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ChatRoomConnectionInfo packet) => packet._data; 
+    public static implicit operator Memory<byte>(ChatRoomConnectionInfo packet) => packet._data;
 }
 
 
@@ -28290,7 +28290,7 @@ public readonly struct FriendInvitationResult
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(FriendInvitationResult packet) => packet._data; 
+    public static implicit operator Memory<byte>(FriendInvitationResult packet) => packet._data;
 }
 
 
@@ -28372,7 +28372,7 @@ public readonly struct QuestEventResponse
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(QuestEventResponse packet) => packet._data; 
+    public static implicit operator Memory<byte>(QuestEventResponse packet) => packet._data;
 }
 
 
@@ -28467,13 +28467,13 @@ public readonly struct AvailableQuests
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(AvailableQuests packet) => packet._data; 
+    public static implicit operator Memory<byte>(AvailableQuests packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="QuestIdentification"/>.
     /// </summary>
     /// <param name="questsCount">The count of <see cref="QuestIdentification"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int questsCount) => questsCount * QuestIdentification.Length + 8;
 }
 
@@ -28569,7 +28569,7 @@ public readonly struct QuestStepInfo
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(QuestStepInfo packet) => packet._data; 
+    public static implicit operator Memory<byte>(QuestStepInfo packet) => packet._data;
 }
 
 
@@ -28692,13 +28692,13 @@ public readonly struct QuestProgress
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(QuestProgress packet) => packet._data; 
+    public static implicit operator Memory<byte>(QuestProgress packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="QuestCondition"/>.
     /// </summary>
     /// <param name="conditionsCount">The count of <see cref="QuestCondition"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int conditionsCount) => conditionsCount * QuestCondition.Length + 11;
 }
 
@@ -28831,13 +28831,13 @@ public readonly struct QuestProgressExtended
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(QuestProgressExtended packet) => packet._data; 
+    public static implicit operator Memory<byte>(QuestProgressExtended packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="QuestConditionExtended"/>.
     /// </summary>
     /// <param name="conditionsCount">The count of <see cref="QuestConditionExtended"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int conditionsCount) => conditionsCount * QuestConditionExtended.Length + 12;
 }
 
@@ -28942,7 +28942,7 @@ public readonly struct QuestCompletionResponse
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(QuestCompletionResponse packet) => packet._data; 
+    public static implicit operator Memory<byte>(QuestCompletionResponse packet) => packet._data;
 }
 
 
@@ -29037,7 +29037,7 @@ public readonly struct QuestCancelled
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(QuestCancelled packet) => packet._data; 
+    public static implicit operator Memory<byte>(QuestCancelled packet) => packet._data;
 }
 
 
@@ -29123,13 +29123,13 @@ public readonly struct QuestStateList
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(QuestStateList packet) => packet._data; 
+    public static implicit operator Memory<byte>(QuestStateList packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="QuestIdentification"/>.
     /// </summary>
     /// <param name="questsCount">The count of <see cref="QuestIdentification"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int questsCount) => questsCount * QuestIdentification.Length + 5;
 }
 
@@ -29262,13 +29262,13 @@ public readonly struct QuestState
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(QuestState packet) => packet._data; 
+    public static implicit operator Memory<byte>(QuestState packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="QuestCondition"/>.
     /// </summary>
     /// <param name="conditionsCount">The count of <see cref="QuestCondition"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int conditionsCount) => conditionsCount * QuestCondition.Length + 11;
 }
 
@@ -29401,13 +29401,13 @@ public readonly struct QuestStateExtended
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(QuestStateExtended packet) => packet._data; 
+    public static implicit operator Memory<byte>(QuestStateExtended packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="QuestConditionExtended"/>.
     /// </summary>
     /// <param name="conditionsCount">The count of <see cref="QuestConditionExtended"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int conditionsCount) => conditionsCount * QuestConditionExtended.Length + 12;
 }
 
@@ -29503,7 +29503,7 @@ public readonly struct OpenNpcDialog
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(OpenNpcDialog packet) => packet._data; 
+    public static implicit operator Memory<byte>(OpenNpcDialog packet) => packet._data;
 }
 
 
@@ -29618,7 +29618,7 @@ public readonly struct DevilSquareEnterResult
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(DevilSquareEnterResult packet) => packet._data; 
+    public static implicit operator Memory<byte>(DevilSquareEnterResult packet) => packet._data;
 }
 
 
@@ -29724,7 +29724,7 @@ public readonly struct MiniGameOpeningState
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MiniGameOpeningState packet) => packet._data; 
+    public static implicit operator Memory<byte>(MiniGameOpeningState packet) => packet._data;
 }
 
 
@@ -29869,7 +29869,7 @@ public readonly struct UpdateMiniGameState
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(UpdateMiniGameState packet) => packet._data; 
+    public static implicit operator Memory<byte>(UpdateMiniGameState packet) => packet._data;
 }
 
 
@@ -29957,13 +29957,13 @@ public readonly struct MiniGameScoreTable
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MiniGameScoreTable packet) => packet._data; 
+    public static implicit operator Memory<byte>(MiniGameScoreTable packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="ResultItem"/>.
     /// </summary>
     /// <param name="resultsCount">The count of <see cref="ResultItem"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int resultsCount) => resultsCount * ResultItem.Length + 5;
 
 
@@ -30148,7 +30148,7 @@ public readonly struct BloodCastleScore
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(BloodCastleScore packet) => packet._data; 
+    public static implicit operator Memory<byte>(BloodCastleScore packet) => packet._data;
 }
 
 
@@ -30263,7 +30263,7 @@ public readonly struct BloodCastleEnterResult
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(BloodCastleEnterResult packet) => packet._data; 
+    public static implicit operator Memory<byte>(BloodCastleEnterResult packet) => packet._data;
 }
 
 
@@ -30443,7 +30443,7 @@ public readonly struct BloodCastleState
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(BloodCastleState packet) => packet._data; 
+    public static implicit operator Memory<byte>(BloodCastleState packet) => packet._data;
 }
 
 
@@ -30565,7 +30565,7 @@ public readonly struct ChaosCastleEnterResult
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(ChaosCastleEnterResult packet) => packet._data; 
+    public static implicit operator Memory<byte>(ChaosCastleEnterResult packet) => packet._data;
 }
 
 
@@ -30669,7 +30669,7 @@ public readonly struct MapEventState
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(MapEventState packet) => packet._data; 
+    public static implicit operator Memory<byte>(MapEventState packet) => packet._data;
 }
 
 
@@ -30809,13 +30809,13 @@ public readonly struct AvailableChatCommand
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(AvailableChatCommand packet) => packet._data; 
+    public static implicit operator Memory<byte>(AvailableChatCommand packet) => packet._data;
 
     /// <summary>
     /// Calculates the size of the packet for the specified count of <see cref="ChatCommandParameter"/>.
     /// </summary>
     /// <param name="parametersCount">The count of <see cref="ChatCommandParameter"/> from which the size will be calculated.</param>
-        
+
     public static int GetRequiredSize(int parametersCount) => parametersCount * ChatCommandParameter.Length + 345;
 
 
@@ -30981,7 +30981,7 @@ public readonly struct EventChipRegistrationResult
     /// </summary>
     /// <param name="packet">The packet as struct.</param>
     /// <returns>The packet as byte span.</returns>
-    public static implicit operator Memory<byte>(EventChipRegistrationResult packet) => packet._data; 
+    public static implicit operator Memory<byte>(EventChipRegistrationResult packet) => packet._data;
 }
 
 
@@ -35264,6 +35264,1298 @@ public readonly struct MiniMapNpcPosition
         set => this._data.Span[2] = value;
     }
 }
+}
+
+
+/// <summary>
+/// Is sent by the server when: The client requests the account cash shop balances.
+/// Causes reaction on client side: The client updates its WCoin C, WCoin P and Goblin Point display.
+/// </summary>
+public readonly struct CashShopPointInfo
+{
+    private readonly Memory<byte> _data;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopPointInfo"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    public CashShopPointInfo(Memory<byte> data)
+        : this(data, true)
+    {
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopPointInfo"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    /// <param name="initialize">If set to <c>true</c>, the header data is automatically initialized and written to the underlying span.</param>
+    private CashShopPointInfo(Memory<byte> data, bool initialize)
+    {
+        this._data = data;
+        if (initialize)
+        {
+            var header = this.Header;
+            header.Type = HeaderType;
+            header.Code = Code;
+            header.Length = (byte)Math.Min(data.Length, Length);
+            header.SubCode = SubCode;
+        }
+    }
+
+    /// <summary>
+    /// Gets the header type of this data packet.
+    /// </summary>
+    public static byte HeaderType => 0xC1;
+
+    /// <summary>
+    /// Gets the operation code of this data packet.
+    /// </summary>
+    public static byte Code => 0xD2;
+
+    /// <summary>
+    /// Gets the operation sub-code of this data packet.
+    /// The <see cref="Code" /> is used as a grouping key.
+    /// </summary>
+    public static byte SubCode => 0x01;
+
+    /// <summary>
+    /// Gets the initial length of this data packet. When the size is dynamic, this value may be bigger than actually needed.
+    /// </summary>
+    public static int Length => 45;
+
+    /// <summary>
+    /// Gets the header of this packet.
+    /// </summary>
+    public C1HeaderWithSubCode Header => new (this._data);
+
+    /// <summary>
+    /// Gets or sets the view type.
+    /// </summary>
+    public byte ViewType
+    {
+        get => this._data.Span[4];
+        set => this._data.Span[4] = value;
+    }
+
+    /// <summary>
+    /// Gets or sets the total cash.
+    /// </summary>
+    public double TotalCash
+    {
+        get => ReadDoubleLittleEndian(this._data.Span[5..]);
+        set => WriteDoubleLittleEndian(this._data.Span[5..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the cash credit.
+    /// </summary>
+    public double CashCredit
+    {
+        get => ReadDoubleLittleEndian(this._data.Span[13..]);
+        set => WriteDoubleLittleEndian(this._data.Span[13..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the cash prepaid.
+    /// </summary>
+    public double CashPrepaid
+    {
+        get => ReadDoubleLittleEndian(this._data.Span[21..]);
+        set => WriteDoubleLittleEndian(this._data.Span[21..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the total point.
+    /// </summary>
+    public double TotalPoint
+    {
+        get => ReadDoubleLittleEndian(this._data.Span[29..]);
+        set => WriteDoubleLittleEndian(this._data.Span[29..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the total mileage.
+    /// </summary>
+    public double TotalMileage
+    {
+        get => ReadDoubleLittleEndian(this._data.Span[37..]);
+        set => WriteDoubleLittleEndian(this._data.Span[37..], value);
+    }
+
+    /// <summary>
+    /// Performs an implicit conversion from a Memory of bytes to a <see cref="CashShopPointInfo"/>.
+    /// </summary>
+    /// <param name="packet">The packet as span.</param>
+    /// <returns>The packet as struct.</returns>
+    public static implicit operator CashShopPointInfo(Memory<byte> packet) => new (packet, false);
+
+    /// <summary>
+    /// Performs an implicit conversion from <see cref="CashShopPointInfo"/> to a Memory of bytes.
+    /// </summary>
+    /// <param name="packet">The packet as struct.</param>
+    /// <returns>The packet as byte span.</returns>
+    public static implicit operator Memory<byte>(CashShopPointInfo packet) => packet._data;
+}
+
+
+/// <summary>
+/// Is sent by the server when: The player requests to open the cash shop.
+/// Causes reaction on client side: The client opens the cash shop only when the result is non-zero.
+/// </summary>
+public readonly struct CashShopOpenResponse
+{
+    private readonly Memory<byte> _data;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopOpenResponse"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    public CashShopOpenResponse(Memory<byte> data)
+        : this(data, true)
+    {
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopOpenResponse"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    /// <param name="initialize">If set to <c>true</c>, the header data is automatically initialized and written to the underlying span.</param>
+    private CashShopOpenResponse(Memory<byte> data, bool initialize)
+    {
+        this._data = data;
+        if (initialize)
+        {
+            var header = this.Header;
+            header.Type = HeaderType;
+            header.Code = Code;
+            header.Length = (byte)Math.Min(data.Length, Length);
+            header.SubCode = SubCode;
+        }
+    }
+
+    /// <summary>
+    /// Gets the header type of this data packet.
+    /// </summary>
+    public static byte HeaderType => 0xC1;
+
+    /// <summary>
+    /// Gets the operation code of this data packet.
+    /// </summary>
+    public static byte Code => 0xD2;
+
+    /// <summary>
+    /// Gets the operation sub-code of this data packet.
+    /// The <see cref="Code" /> is used as a grouping key.
+    /// </summary>
+    public static byte SubCode => 0x02;
+
+    /// <summary>
+    /// Gets the initial length of this data packet. When the size is dynamic, this value may be bigger than actually needed.
+    /// </summary>
+    public static int Length => 5;
+
+    /// <summary>
+    /// Gets the header of this packet.
+    /// </summary>
+    public C1HeaderWithSubCode Header => new (this._data);
+
+    /// <summary>
+    /// Gets or sets the result.
+    /// </summary>
+    public byte Result
+    {
+        get => this._data.Span[4];
+        set => this._data.Span[4] = value;
+    }
+
+    /// <summary>
+    /// Performs an implicit conversion from a Memory of bytes to a <see cref="CashShopOpenResponse"/>.
+    /// </summary>
+    /// <param name="packet">The packet as span.</param>
+    /// <returns>The packet as struct.</returns>
+    public static implicit operator CashShopOpenResponse(Memory<byte> packet) => new (packet, false);
+
+    /// <summary>
+    /// Performs an implicit conversion from <see cref="CashShopOpenResponse"/> to a Memory of bytes.
+    /// </summary>
+    /// <param name="packet">The packet as struct.</param>
+    /// <returns>The packet as byte span.</returns>
+    public static implicit operator Memory<byte>(CashShopOpenResponse packet) => packet._data;
+}
+
+
+/// <summary>
+/// Is sent by the server when: A cash shop purchase request has completed.
+/// Causes reaction on client side: The client displays the purchase result and refreshes balances and storage on success.
+/// </summary>
+public readonly struct CashShopItemBuyResponse
+{
+    private readonly Memory<byte> _data;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopItemBuyResponse"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    public CashShopItemBuyResponse(Memory<byte> data)
+        : this(data, true)
+    {
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopItemBuyResponse"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    /// <param name="initialize">If set to <c>true</c>, the header data is automatically initialized and written to the underlying span.</param>
+    private CashShopItemBuyResponse(Memory<byte> data, bool initialize)
+    {
+        this._data = data;
+        if (initialize)
+        {
+            var header = this.Header;
+            header.Type = HeaderType;
+            header.Code = Code;
+            header.Length = (byte)Math.Min(data.Length, Length);
+            header.SubCode = SubCode;
+        }
+    }
+
+    /// <summary>
+    /// Gets the header type of this data packet.
+    /// </summary>
+    public static byte HeaderType => 0xC1;
+
+    /// <summary>
+    /// Gets the operation code of this data packet.
+    /// </summary>
+    public static byte Code => 0xD2;
+
+    /// <summary>
+    /// Gets the operation sub-code of this data packet.
+    /// The <see cref="Code" /> is used as a grouping key.
+    /// </summary>
+    public static byte SubCode => 0x03;
+
+    /// <summary>
+    /// Gets the initial length of this data packet. When the size is dynamic, this value may be bigger than actually needed.
+    /// </summary>
+    public static int Length => 9;
+
+    /// <summary>
+    /// Gets the header of this packet.
+    /// </summary>
+    public C1HeaderWithSubCode Header => new (this._data);
+
+    /// <summary>
+    /// Gets or sets the result code.
+    /// </summary>
+    public byte ResultCode
+    {
+        get => this._data.Span[4];
+        set => this._data.Span[4] = value;
+    }
+
+    /// <summary>
+    /// Gets or sets the item left count.
+    /// </summary>
+    public uint ItemLeftCount
+    {
+        get => ReadUInt32LittleEndian(this._data.Span[5..]);
+        set => WriteUInt32LittleEndian(this._data.Span[5..], value);
+    }
+
+    /// <summary>
+    /// Performs an implicit conversion from a Memory of bytes to a <see cref="CashShopItemBuyResponse"/>.
+    /// </summary>
+    /// <param name="packet">The packet as span.</param>
+    /// <returns>The packet as struct.</returns>
+    public static implicit operator CashShopItemBuyResponse(Memory<byte> packet) => new (packet, false);
+
+    /// <summary>
+    /// Performs an implicit conversion from <see cref="CashShopItemBuyResponse"/> to a Memory of bytes.
+    /// </summary>
+    /// <param name="packet">The packet as struct.</param>
+    /// <returns>The packet as byte span.</returns>
+    public static implicit operator Memory<byte>(CashShopItemBuyResponse packet) => packet._data;
+}
+
+
+/// <summary>
+/// Is sent by the server when: A cash shop gift request has completed.
+/// Causes reaction on client side: The client displays the gift result and refreshes balances on success.
+/// </summary>
+public readonly struct CashShopItemGiftResponse
+{
+    private readonly Memory<byte> _data;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopItemGiftResponse"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    public CashShopItemGiftResponse(Memory<byte> data)
+        : this(data, true)
+    {
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopItemGiftResponse"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    /// <param name="initialize">If set to <c>true</c>, the header data is automatically initialized and written to the underlying span.</param>
+    private CashShopItemGiftResponse(Memory<byte> data, bool initialize)
+    {
+        this._data = data;
+        if (initialize)
+        {
+            var header = this.Header;
+            header.Type = HeaderType;
+            header.Code = Code;
+            header.Length = (byte)Math.Min(data.Length, Length);
+            header.SubCode = SubCode;
+        }
+    }
+
+    /// <summary>
+    /// Gets the header type of this data packet.
+    /// </summary>
+    public static byte HeaderType => 0xC1;
+
+    /// <summary>
+    /// Gets the operation code of this data packet.
+    /// </summary>
+    public static byte Code => 0xD2;
+
+    /// <summary>
+    /// Gets the operation sub-code of this data packet.
+    /// The <see cref="Code" /> is used as a grouping key.
+    /// </summary>
+    public static byte SubCode => 0x04;
+
+    /// <summary>
+    /// Gets the initial length of this data packet. When the size is dynamic, this value may be bigger than actually needed.
+    /// </summary>
+    public static int Length => 17;
+
+    /// <summary>
+    /// Gets the header of this packet.
+    /// </summary>
+    public C1HeaderWithSubCode Header => new (this._data);
+
+    /// <summary>
+    /// Gets or sets the result code.
+    /// </summary>
+    public byte ResultCode
+    {
+        get => this._data.Span[4];
+        set => this._data.Span[4] = value;
+    }
+
+    /// <summary>
+    /// Gets or sets the item left count.
+    /// </summary>
+    public uint ItemLeftCount
+    {
+        get => ReadUInt32LittleEndian(this._data.Span[5..]);
+        set => WriteUInt32LittleEndian(this._data.Span[5..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the limited cash.
+    /// </summary>
+    public double LimitedCash
+    {
+        get => ReadDoubleLittleEndian(this._data.Span[9..]);
+        set => WriteDoubleLittleEndian(this._data.Span[9..], value);
+    }
+
+    /// <summary>
+    /// Performs an implicit conversion from a Memory of bytes to a <see cref="CashShopItemGiftResponse"/>.
+    /// </summary>
+    /// <param name="packet">The packet as span.</param>
+    /// <returns>The packet as struct.</returns>
+    public static implicit operator CashShopItemGiftResponse(Memory<byte> packet) => new (packet, false);
+
+    /// <summary>
+    /// Performs an implicit conversion from <see cref="CashShopItemGiftResponse"/> to a Memory of bytes.
+    /// </summary>
+    /// <param name="packet">The packet as struct.</param>
+    /// <returns>The packet as byte span.</returns>
+    public static implicit operator Memory<byte>(CashShopItemGiftResponse packet) => packet._data;
+}
+
+
+/// <summary>
+/// Is sent by the server when: The client requests a page of its cash shop storage.
+/// Causes reaction on client side: The client resets the storage list and prepares to receive its entries.
+/// </summary>
+public readonly struct CashShopStorageInfo
+{
+    private readonly Memory<byte> _data;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopStorageInfo"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    public CashShopStorageInfo(Memory<byte> data)
+        : this(data, true)
+    {
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopStorageInfo"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    /// <param name="initialize">If set to <c>true</c>, the header data is automatically initialized and written to the underlying span.</param>
+    private CashShopStorageInfo(Memory<byte> data, bool initialize)
+    {
+        this._data = data;
+        if (initialize)
+        {
+            var header = this.Header;
+            header.Type = HeaderType;
+            header.Code = Code;
+            header.Length = (byte)Math.Min(data.Length, Length);
+            header.SubCode = SubCode;
+        }
+    }
+
+    /// <summary>
+    /// Gets the header type of this data packet.
+    /// </summary>
+    public static byte HeaderType => 0xC1;
+
+    /// <summary>
+    /// Gets the operation code of this data packet.
+    /// </summary>
+    public static byte Code => 0xD2;
+
+    /// <summary>
+    /// Gets the operation sub-code of this data packet.
+    /// The <see cref="Code" /> is used as a grouping key.
+    /// </summary>
+    public static byte SubCode => 0x06;
+
+    /// <summary>
+    /// Gets the initial length of this data packet. When the size is dynamic, this value may be bigger than actually needed.
+    /// </summary>
+    public static int Length => 12;
+
+    /// <summary>
+    /// Gets the header of this packet.
+    /// </summary>
+    public C1HeaderWithSubCode Header => new (this._data);
+
+    /// <summary>
+    /// Gets or sets the total item count.
+    /// </summary>
+    public ushort TotalItemCount
+    {
+        get => ReadUInt16LittleEndian(this._data.Span[4..]);
+        set => WriteUInt16LittleEndian(this._data.Span[4..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the current item count.
+    /// </summary>
+    public ushort CurrentItemCount
+    {
+        get => ReadUInt16LittleEndian(this._data.Span[6..]);
+        set => WriteUInt16LittleEndian(this._data.Span[6..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the page index.
+    /// </summary>
+    public ushort PageIndex
+    {
+        get => ReadUInt16LittleEndian(this._data.Span[8..]);
+        set => WriteUInt16LittleEndian(this._data.Span[8..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the total page.
+    /// </summary>
+    public ushort TotalPage
+    {
+        get => ReadUInt16LittleEndian(this._data.Span[10..]);
+        set => WriteUInt16LittleEndian(this._data.Span[10..], value);
+    }
+
+    /// <summary>
+    /// Performs an implicit conversion from a Memory of bytes to a <see cref="CashShopStorageInfo"/>.
+    /// </summary>
+    /// <param name="packet">The packet as span.</param>
+    /// <returns>The packet as struct.</returns>
+    public static implicit operator CashShopStorageInfo(Memory<byte> packet) => new (packet, false);
+
+    /// <summary>
+    /// Performs an implicit conversion from <see cref="CashShopStorageInfo"/> to a Memory of bytes.
+    /// </summary>
+    /// <param name="packet">The packet as struct.</param>
+    /// <returns>The packet as byte span.</returns>
+    public static implicit operator Memory<byte>(CashShopStorageInfo packet) => packet._data;
+}
+
+
+/// <summary>
+/// Is sent by the server when: A cash shop storage item consume request has completed.
+/// Causes reaction on client side: The client displays the consume result and refreshes storage on success.
+/// </summary>
+public readonly struct CashShopStorageItemConsumeResponse
+{
+    private readonly Memory<byte> _data;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopStorageItemConsumeResponse"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    public CashShopStorageItemConsumeResponse(Memory<byte> data)
+        : this(data, true)
+    {
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopStorageItemConsumeResponse"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    /// <param name="initialize">If set to <c>true</c>, the header data is automatically initialized and written to the underlying span.</param>
+    private CashShopStorageItemConsumeResponse(Memory<byte> data, bool initialize)
+    {
+        this._data = data;
+        if (initialize)
+        {
+            var header = this.Header;
+            header.Type = HeaderType;
+            header.Code = Code;
+            header.Length = (byte)Math.Min(data.Length, Length);
+            header.SubCode = SubCode;
+        }
+    }
+
+    /// <summary>
+    /// Gets the header type of this data packet.
+    /// </summary>
+    public static byte HeaderType => 0xC1;
+
+    /// <summary>
+    /// Gets the operation code of this data packet.
+    /// </summary>
+    public static byte Code => 0xD2;
+
+    /// <summary>
+    /// Gets the operation sub-code of this data packet.
+    /// The <see cref="Code" /> is used as a grouping key.
+    /// </summary>
+    public static byte SubCode => 0x0B;
+
+    /// <summary>
+    /// Gets the initial length of this data packet. When the size is dynamic, this value may be bigger than actually needed.
+    /// </summary>
+    public static int Length => 5;
+
+    /// <summary>
+    /// Gets the header of this packet.
+    /// </summary>
+    public C1HeaderWithSubCode Header => new (this._data);
+
+    /// <summary>
+    /// Gets or sets the result.
+    /// </summary>
+    public byte Result
+    {
+        get => this._data.Span[4];
+        set => this._data.Span[4] = value;
+    }
+
+    /// <summary>
+    /// Performs an implicit conversion from a Memory of bytes to a <see cref="CashShopStorageItemConsumeResponse"/>.
+    /// </summary>
+    /// <param name="packet">The packet as span.</param>
+    /// <returns>The packet as struct.</returns>
+    public static implicit operator CashShopStorageItemConsumeResponse(Memory<byte> packet) => new (packet, false);
+
+    /// <summary>
+    /// Performs an implicit conversion from <see cref="CashShopStorageItemConsumeResponse"/> to a Memory of bytes.
+    /// </summary>
+    /// <param name="packet">The packet as struct.</param>
+    /// <returns>The packet as byte span.</returns>
+    public static implicit operator Memory<byte>(CashShopStorageItemConsumeResponse packet) => packet._data;
+}
+
+
+/// <summary>
+/// Is sent by the server when: A player enters the game or the authoritative catalog changes.
+/// Causes reaction on client side: The client loads the matching local catalog and unlocks the cash shop.
+/// </summary>
+public readonly struct CashShopScriptVersion
+{
+    private readonly Memory<byte> _data;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopScriptVersion"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    public CashShopScriptVersion(Memory<byte> data)
+        : this(data, true)
+    {
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopScriptVersion"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    /// <param name="initialize">If set to <c>true</c>, the header data is automatically initialized and written to the underlying span.</param>
+    private CashShopScriptVersion(Memory<byte> data, bool initialize)
+    {
+        this._data = data;
+        if (initialize)
+        {
+            var header = this.Header;
+            header.Type = HeaderType;
+            header.Code = Code;
+            header.Length = (byte)Math.Min(data.Length, Length);
+            header.SubCode = SubCode;
+        }
+    }
+
+    /// <summary>
+    /// Gets the header type of this data packet.
+    /// </summary>
+    public static byte HeaderType => 0xC1;
+
+    /// <summary>
+    /// Gets the operation code of this data packet.
+    /// </summary>
+    public static byte Code => 0xD2;
+
+    /// <summary>
+    /// Gets the operation sub-code of this data packet.
+    /// The <see cref="Code" /> is used as a grouping key.
+    /// </summary>
+    public static byte SubCode => 0x0C;
+
+    /// <summary>
+    /// Gets the initial length of this data packet. When the size is dynamic, this value may be bigger than actually needed.
+    /// </summary>
+    public static int Length => 10;
+
+    /// <summary>
+    /// Gets the header of this packet.
+    /// </summary>
+    public C1HeaderWithSubCode Header => new (this._data);
+
+    /// <summary>
+    /// Gets or sets the zone.
+    /// </summary>
+    public ushort Zone
+    {
+        get => ReadUInt16LittleEndian(this._data.Span[4..]);
+        set => WriteUInt16LittleEndian(this._data.Span[4..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the year.
+    /// </summary>
+    public ushort Year
+    {
+        get => ReadUInt16LittleEndian(this._data.Span[6..]);
+        set => WriteUInt16LittleEndian(this._data.Span[6..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the year id.
+    /// </summary>
+    public ushort YearId
+    {
+        get => ReadUInt16LittleEndian(this._data.Span[8..]);
+        set => WriteUInt16LittleEndian(this._data.Span[8..], value);
+    }
+
+    /// <summary>
+    /// Performs an implicit conversion from a Memory of bytes to a <see cref="CashShopScriptVersion"/>.
+    /// </summary>
+    /// <param name="packet">The packet as span.</param>
+    /// <returns>The packet as struct.</returns>
+    public static implicit operator CashShopScriptVersion(Memory<byte> packet) => new (packet, false);
+
+    /// <summary>
+    /// Performs an implicit conversion from <see cref="CashShopScriptVersion"/> to a Memory of bytes.
+    /// </summary>
+    /// <param name="packet">The packet as struct.</param>
+    /// <returns>The packet as byte span.</returns>
+    public static implicit operator Memory<byte>(CashShopScriptVersion packet) => packet._data;
+}
+
+
+/// <summary>
+/// Is sent by the server when: The server sends an item from the requested normal storage page.
+/// Causes reaction on client side: The client adds the item to its cash shop storage list.
+/// </summary>
+public readonly struct CashShopStorageItem
+{
+    private readonly Memory<byte> _data;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopStorageItem"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    public CashShopStorageItem(Memory<byte> data)
+        : this(data, true)
+    {
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopStorageItem"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    /// <param name="initialize">If set to <c>true</c>, the header data is automatically initialized and written to the underlying span.</param>
+    private CashShopStorageItem(Memory<byte> data, bool initialize)
+    {
+        this._data = data;
+        if (initialize)
+        {
+            var header = this.Header;
+            header.Type = HeaderType;
+            header.Code = Code;
+            header.Length = (byte)Math.Min(data.Length, Length);
+            header.SubCode = SubCode;
+        }
+    }
+
+    /// <summary>
+    /// Gets the header type of this data packet.
+    /// </summary>
+    public static byte HeaderType => 0xC1;
+
+    /// <summary>
+    /// Gets the operation code of this data packet.
+    /// </summary>
+    public static byte Code => 0xD2;
+
+    /// <summary>
+    /// Gets the operation sub-code of this data packet.
+    /// The <see cref="Code" /> is used as a grouping key.
+    /// </summary>
+    public static byte SubCode => 0x0D;
+
+    /// <summary>
+    /// Gets the initial length of this data packet. When the size is dynamic, this value may be bigger than actually needed.
+    /// </summary>
+    public static int Length => 33;
+
+    /// <summary>
+    /// Gets the header of this packet.
+    /// </summary>
+    public C1HeaderWithSubCode Header => new (this._data);
+
+    /// <summary>
+    /// Gets or sets the storage index.
+    /// </summary>
+    public uint StorageIndex
+    {
+        get => ReadUInt32LittleEndian(this._data.Span[4..]);
+        set => WriteUInt32LittleEndian(this._data.Span[4..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the item sequence.
+    /// </summary>
+    public uint ItemSequence
+    {
+        get => ReadUInt32LittleEndian(this._data.Span[8..]);
+        set => WriteUInt32LittleEndian(this._data.Span[8..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the storage group code.
+    /// </summary>
+    public uint StorageGroupCode
+    {
+        get => ReadUInt32LittleEndian(this._data.Span[12..]);
+        set => WriteUInt32LittleEndian(this._data.Span[12..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the product sequence.
+    /// </summary>
+    public uint ProductSequence
+    {
+        get => ReadUInt32LittleEndian(this._data.Span[16..]);
+        set => WriteUInt32LittleEndian(this._data.Span[16..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the price sequence.
+    /// </summary>
+    public uint PriceSequence
+    {
+        get => ReadUInt32LittleEndian(this._data.Span[20..]);
+        set => WriteUInt32LittleEndian(this._data.Span[20..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the cash point.
+    /// </summary>
+    public double CashPoint
+    {
+        get => ReadDoubleLittleEndian(this._data.Span[24..]);
+        set => WriteDoubleLittleEndian(this._data.Span[24..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the item type.
+    /// </summary>
+    public byte ItemType
+    {
+        get => this._data.Span[32];
+        set => this._data.Span[32] = value;
+    }
+
+    /// <summary>
+    /// Performs an implicit conversion from a Memory of bytes to a <see cref="CashShopStorageItem"/>.
+    /// </summary>
+    /// <param name="packet">The packet as span.</param>
+    /// <returns>The packet as struct.</returns>
+    public static implicit operator CashShopStorageItem(Memory<byte> packet) => new (packet, false);
+
+    /// <summary>
+    /// Performs an implicit conversion from <see cref="CashShopStorageItem"/> to a Memory of bytes.
+    /// </summary>
+    /// <param name="packet">The packet as struct.</param>
+    /// <returns>The packet as byte span.</returns>
+    public static implicit operator Memory<byte>(CashShopStorageItem packet) => packet._data;
+}
+
+
+/// <summary>
+/// Is sent by the server when: The server sends an item from the requested gift storage page.
+/// Causes reaction on client side: The client adds the gift and its sender information to the storage list.
+/// </summary>
+public readonly struct CashShopGiftStorageItem
+{
+    private readonly Memory<byte> _data;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopGiftStorageItem"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    public CashShopGiftStorageItem(Memory<byte> data)
+        : this(data, true)
+    {
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopGiftStorageItem"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    /// <param name="initialize">If set to <c>true</c>, the header data is automatically initialized and written to the underlying span.</param>
+    private CashShopGiftStorageItem(Memory<byte> data, bool initialize)
+    {
+        this._data = data;
+        if (initialize)
+        {
+            var header = this.Header;
+            header.Type = HeaderType;
+            header.Code = Code;
+            header.Length = (byte)Math.Min(data.Length, Length);
+            header.SubCode = SubCode;
+        }
+    }
+
+    /// <summary>
+    /// Gets the header type of this data packet.
+    /// </summary>
+    public static byte HeaderType => 0xC1;
+
+    /// <summary>
+    /// Gets the operation code of this data packet.
+    /// </summary>
+    public static byte Code => 0xD2;
+
+    /// <summary>
+    /// Gets the operation sub-code of this data packet.
+    /// The <see cref="Code" /> is used as a grouping key.
+    /// </summary>
+    public static byte SubCode => 0x0E;
+
+    /// <summary>
+    /// Gets the initial length of this data packet. When the size is dynamic, this value may be bigger than actually needed.
+    /// </summary>
+    public static int Length => 244;
+
+    /// <summary>
+    /// Gets the header of this packet.
+    /// </summary>
+    public C1HeaderWithSubCode Header => new (this._data);
+
+    /// <summary>
+    /// Gets or sets the storage index.
+    /// </summary>
+    public uint StorageIndex
+    {
+        get => ReadUInt32LittleEndian(this._data.Span[4..]);
+        set => WriteUInt32LittleEndian(this._data.Span[4..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the item sequence.
+    /// </summary>
+    public uint ItemSequence
+    {
+        get => ReadUInt32LittleEndian(this._data.Span[8..]);
+        set => WriteUInt32LittleEndian(this._data.Span[8..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the storage group code.
+    /// </summary>
+    public uint StorageGroupCode
+    {
+        get => ReadUInt32LittleEndian(this._data.Span[12..]);
+        set => WriteUInt32LittleEndian(this._data.Span[12..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the product sequence.
+    /// </summary>
+    public uint ProductSequence
+    {
+        get => ReadUInt32LittleEndian(this._data.Span[16..]);
+        set => WriteUInt32LittleEndian(this._data.Span[16..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the price sequence.
+    /// </summary>
+    public uint PriceSequence
+    {
+        get => ReadUInt32LittleEndian(this._data.Span[20..]);
+        set => WriteUInt32LittleEndian(this._data.Span[20..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the cash point.
+    /// </summary>
+    public double CashPoint
+    {
+        get => ReadDoubleLittleEndian(this._data.Span[24..]);
+        set => WriteDoubleLittleEndian(this._data.Span[24..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the item type.
+    /// </summary>
+    public byte ItemType
+    {
+        get => this._data.Span[32];
+        set => this._data.Span[32] = value;
+    }
+
+    /// <summary>
+    /// Gets or sets the sender name.
+    /// </summary>
+    public string SenderName
+    {
+        get => this._data.Span.ExtractString(33, 11, System.Text.Encoding.UTF8);
+        set => this._data.Slice(33, 11).Span.WriteString(value, System.Text.Encoding.UTF8);
+    }
+
+    /// <summary>
+    /// Gets or sets the gift message.
+    /// </summary>
+    public string GiftMessage
+    {
+        get => this._data.Span.ExtractString(44, 200, System.Text.Encoding.UTF8);
+        set => this._data.Slice(44, 200).Span.WriteString(value, System.Text.Encoding.UTF8);
+    }
+
+    /// <summary>
+    /// Performs an implicit conversion from a Memory of bytes to a <see cref="CashShopGiftStorageItem"/>.
+    /// </summary>
+    /// <param name="packet">The packet as span.</param>
+    /// <returns>The packet as struct.</returns>
+    public static implicit operator CashShopGiftStorageItem(Memory<byte> packet) => new (packet, false);
+
+    /// <summary>
+    /// Performs an implicit conversion from <see cref="CashShopGiftStorageItem"/> to a Memory of bytes.
+    /// </summary>
+    /// <param name="packet">The packet as struct.</param>
+    /// <returns>The packet as byte span.</returns>
+    public static implicit operator Memory<byte>(CashShopGiftStorageItem packet) => packet._data;
+}
+
+
+/// <summary>
+/// Is sent by the server when: The client requests the event items of a category.
+/// Causes reaction on client side: The client prepares to receive the event package identifiers.
+/// </summary>
+public readonly struct CashShopEventItemCount
+{
+    private readonly Memory<byte> _data;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopEventItemCount"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    public CashShopEventItemCount(Memory<byte> data)
+        : this(data, true)
+    {
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopEventItemCount"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    /// <param name="initialize">If set to <c>true</c>, the header data is automatically initialized and written to the underlying span.</param>
+    private CashShopEventItemCount(Memory<byte> data, bool initialize)
+    {
+        this._data = data;
+        if (initialize)
+        {
+            var header = this.Header;
+            header.Type = HeaderType;
+            header.Code = Code;
+            header.Length = (byte)Math.Min(data.Length, Length);
+            header.SubCode = SubCode;
+        }
+    }
+
+    /// <summary>
+    /// Gets the header type of this data packet.
+    /// </summary>
+    public static byte HeaderType => 0xC1;
+
+    /// <summary>
+    /// Gets the operation code of this data packet.
+    /// </summary>
+    public static byte Code => 0xD2;
+
+    /// <summary>
+    /// Gets the operation sub-code of this data packet.
+    /// The <see cref="Code" /> is used as a grouping key.
+    /// </summary>
+    public static byte SubCode => 0x13;
+
+    /// <summary>
+    /// Gets the initial length of this data packet. When the size is dynamic, this value may be bigger than actually needed.
+    /// </summary>
+    public static int Length => 6;
+
+    /// <summary>
+    /// Gets the header of this packet.
+    /// </summary>
+    public C1HeaderWithSubCode Header => new (this._data);
+
+    /// <summary>
+    /// Gets or sets the item count.
+    /// </summary>
+    public ushort ItemCount
+    {
+        get => ReadUInt16LittleEndian(this._data.Span[4..]);
+        set => WriteUInt16LittleEndian(this._data.Span[4..], value);
+    }
+
+    /// <summary>
+    /// Performs an implicit conversion from a Memory of bytes to a <see cref="CashShopEventItemCount"/>.
+    /// </summary>
+    /// <param name="packet">The packet as span.</param>
+    /// <returns>The packet as struct.</returns>
+    public static implicit operator CashShopEventItemCount(Memory<byte> packet) => new (packet, false);
+
+    /// <summary>
+    /// Performs an implicit conversion from <see cref="CashShopEventItemCount"/> to a Memory of bytes.
+    /// </summary>
+    /// <param name="packet">The packet as struct.</param>
+    /// <returns>The packet as byte span.</returns>
+    public static implicit operator Memory<byte>(CashShopEventItemCount packet) => packet._data;
+}
+
+
+/// <summary>
+/// Is sent by the server when: The server sends a block of event package identifiers.
+/// Causes reaction on client side: The client adds the event packages to the selected category.
+/// </summary>
+public readonly struct CashShopEventItemList
+{
+    private readonly Memory<byte> _data;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopEventItemList"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    public CashShopEventItemList(Memory<byte> data)
+        : this(data, true)
+    {
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopEventItemList"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    /// <param name="initialize">If set to <c>true</c>, the header data is automatically initialized and written to the underlying span.</param>
+    private CashShopEventItemList(Memory<byte> data, bool initialize)
+    {
+        this._data = data;
+        if (initialize)
+        {
+            var header = this.Header;
+            header.Type = HeaderType;
+            header.Code = Code;
+            header.Length = (byte)Math.Min(data.Length, Length);
+            header.SubCode = SubCode;
+        }
+    }
+
+    /// <summary>
+    /// Gets the header type of this data packet.
+    /// </summary>
+    public static byte HeaderType => 0xC1;
+
+    /// <summary>
+    /// Gets the operation code of this data packet.
+    /// </summary>
+    public static byte Code => 0xD2;
+
+    /// <summary>
+    /// Gets the operation sub-code of this data packet.
+    /// The <see cref="Code" /> is used as a grouping key.
+    /// </summary>
+    public static byte SubCode => 0x14;
+
+    /// <summary>
+    /// Gets the initial length of this data packet. When the size is dynamic, this value may be bigger than actually needed.
+    /// </summary>
+    public static int Length => 40;
+
+    /// <summary>
+    /// Gets the header of this packet.
+    /// </summary>
+    public C1HeaderWithSubCode Header => new (this._data);
+
+    /// <summary>
+    /// Gets or sets the package sequences.
+    /// </summary>
+    public Span<byte> PackageSequences
+    {
+        get => this._data.Slice(4, 36).Span;
+    }
+
+    /// <summary>
+    /// Performs an implicit conversion from a Memory of bytes to a <see cref="CashShopEventItemList"/>.
+    /// </summary>
+    /// <param name="packet">The packet as span.</param>
+    /// <returns>The packet as struct.</returns>
+    public static implicit operator CashShopEventItemList(Memory<byte> packet) => new (packet, false);
+
+    /// <summary>
+    /// Performs an implicit conversion from <see cref="CashShopEventItemList"/> to a Memory of bytes.
+    /// </summary>
+    /// <param name="packet">The packet as struct.</param>
+    /// <returns>The packet as byte span.</returns>
+    public static implicit operator Memory<byte>(CashShopEventItemList packet) => packet._data;
+}
+
+
+/// <summary>
+/// Is sent by the server when: A player enters the game or the authoritative banner set changes.
+/// Causes reaction on client side: The client loads the matching local banner set.
+/// </summary>
+public readonly struct CashShopBannerVersion
+{
+    private readonly Memory<byte> _data;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopBannerVersion"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    public CashShopBannerVersion(Memory<byte> data)
+        : this(data, true)
+    {
+    }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CashShopBannerVersion"/> struct.
+    /// </summary>
+    /// <param name="data">The underlying data.</param>
+    /// <param name="initialize">If set to <c>true</c>, the header data is automatically initialized and written to the underlying span.</param>
+    private CashShopBannerVersion(Memory<byte> data, bool initialize)
+    {
+        this._data = data;
+        if (initialize)
+        {
+            var header = this.Header;
+            header.Type = HeaderType;
+            header.Code = Code;
+            header.Length = (byte)Math.Min(data.Length, Length);
+            header.SubCode = SubCode;
+        }
+    }
+
+    /// <summary>
+    /// Gets the header type of this data packet.
+    /// </summary>
+    public static byte HeaderType => 0xC1;
+
+    /// <summary>
+    /// Gets the operation code of this data packet.
+    /// </summary>
+    public static byte Code => 0xD2;
+
+    /// <summary>
+    /// Gets the operation sub-code of this data packet.
+    /// The <see cref="Code" /> is used as a grouping key.
+    /// </summary>
+    public static byte SubCode => 0x15;
+
+    /// <summary>
+    /// Gets the initial length of this data packet. When the size is dynamic, this value may be bigger than actually needed.
+    /// </summary>
+    public static int Length => 10;
+
+    /// <summary>
+    /// Gets the header of this packet.
+    /// </summary>
+    public C1HeaderWithSubCode Header => new (this._data);
+
+    /// <summary>
+    /// Gets or sets the zone.
+    /// </summary>
+    public ushort Zone
+    {
+        get => ReadUInt16LittleEndian(this._data.Span[4..]);
+        set => WriteUInt16LittleEndian(this._data.Span[4..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the year.
+    /// </summary>
+    public ushort Year
+    {
+        get => ReadUInt16LittleEndian(this._data.Span[6..]);
+        set => WriteUInt16LittleEndian(this._data.Span[6..], value);
+    }
+
+    /// <summary>
+    /// Gets or sets the year id.
+    /// </summary>
+    public ushort YearId
+    {
+        get => ReadUInt16LittleEndian(this._data.Span[8..]);
+        set => WriteUInt16LittleEndian(this._data.Span[8..], value);
+    }
+
+    /// <summary>
+    /// Performs an implicit conversion from a Memory of bytes to a <see cref="CashShopBannerVersion"/>.
+    /// </summary>
+    /// <param name="packet">The packet as span.</param>
+    /// <returns>The packet as struct.</returns>
+    public static implicit operator CashShopBannerVersion(Memory<byte> packet) => new (packet, false);
+
+    /// <summary>
+    /// Performs an implicit conversion from <see cref="CashShopBannerVersion"/> to a Memory of bytes.
+    /// </summary>
+    /// <param name="packet">The packet as struct.</param>
+    /// <returns>The packet as byte span.</returns>
+    public static implicit operator Memory<byte>(CashShopBannerVersion packet) => packet._data;
 }
     /// <summary>
     /// Defines the role of a guild member.
