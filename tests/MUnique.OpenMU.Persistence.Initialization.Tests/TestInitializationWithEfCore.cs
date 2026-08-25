@@ -53,9 +53,35 @@ internal class TestInitializationWithEfCore
         var contextProvider = new InMemoryPersistenceContextProvider();
         var dataInitialization = new VersionSeasonSix.DataInitialization(contextProvider, new NullLoggerFactory());
         await dataInitialization.CreateInitialDataAsync(1, true).ConfigureAwait(false);
+        await this.AssertSeasonSixNpcWindowsAsync(contextProvider).ConfigureAwait(false);
         await this.AssertIcarusFeatherAndCrestDropGroupsAsync(contextProvider).ConfigureAwait(false);
         await this.AssertCastleSiegeUpdatePlugInAsync(contextProvider).ConfigureAwait(false);
         await this.TestIfItemsFitIntoInventoriesAsync(contextProvider).ConfigureAwait(false);
+    }
+
+    /// <summary>
+    /// Tests that the mandatory update repairs existing Season 6 NPC definitions.
+    /// </summary>
+    [Test]
+    public async Task TestSeasonSixNpcWindowsUpdatePlugInAsync()
+    {
+        var contextProvider = new InMemoryPersistenceContextProvider();
+        var dataInitialization = new VersionSeasonSix.DataInitialization(contextProvider, new NullLoggerFactory());
+        await dataInitialization.CreateInitialDataAsync(1, true).ConfigureAwait(false);
+
+        using var context = contextProvider.CreateNewContext();
+        var gameConfiguration = (await context.GetAsync<GameConfiguration>().ConfigureAwait(false)).First();
+        foreach (var npcNumber in new short[] { 385, 540, 579 })
+        {
+            gameConfiguration.Monsters.First(monster => monster.Number == npcNumber).NpcWindow = NpcWindow.Undefined;
+        }
+
+        var update = new FixSeasonSixNpcWindowsUpdatePlugIn();
+        await update.ApplyUpdateAsync(context, gameConfiguration).ConfigureAwait(false);
+
+        AssertNpcWindow(gameConfiguration, 385, NpcWindow.IllusionTemple);
+        AssertNpcWindow(gameConfiguration, 540, NpcWindow.LugardDoppelgangerEntry);
+        AssertNpcWindow(gameConfiguration, 579, NpcWindow.CombineLuckyItem);
     }
 
     /// <summary>
@@ -185,6 +211,21 @@ internal class TestInitializationWithEfCore
         Assert.That(crestGroup.PossibleItems, Has.Count.EqualTo(1));
         Assert.That(crestGroup.PossibleItems.Single().Group, Is.EqualTo((byte)13));
         Assert.That(crestGroup.PossibleItems.Single().Number, Is.EqualTo((short)14));
+    }
+
+    private async Task AssertSeasonSixNpcWindowsAsync(IPersistenceContextProvider contextProvider)
+    {
+        using var context = contextProvider.CreateNewContext();
+        var gameConfiguration = (await context.GetAsync<GameConfiguration>().ConfigureAwait(false)).Single();
+        AssertNpcWindow(gameConfiguration, 385, NpcWindow.IllusionTemple);
+        AssertNpcWindow(gameConfiguration, 540, NpcWindow.LugardDoppelgangerEntry);
+        AssertNpcWindow(gameConfiguration, 579, NpcWindow.CombineLuckyItem);
+    }
+
+    private static void AssertNpcWindow(GameConfiguration gameConfiguration, short npcNumber, NpcWindow expectedWindow)
+    {
+        var definition = gameConfiguration.Monsters.Single(monster => monster.Number == npcNumber);
+        Assert.That(definition.NpcWindow, Is.EqualTo(expectedWindow), definition.Designation);
     }
 
     private async Task AssertCastleSiegeDataAsync(IPersistenceContextProvider contextProvider)
